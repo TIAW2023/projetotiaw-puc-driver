@@ -1,0 +1,9 @@
+/* 
+Cores que seram usadas:
+
+Para o fundo iremos usar um cinza bem claro: #DCDCDC
+Para o header e footer usaremos o preto padrao: #000000
+Para botoes que possuirem a funcionalidade HOVER usar este cinza mais escuro: #808080
+Usaremos letras BRANCAS quando for BACKGROUND preto e letras PRETAS para BACKGROUND cinza e o cinza mais escuro.
+
+Para o border RADIUS poderemos usar 7px, nao é tao redondo mas tambem nao é tao quadrado.
