@@ -29,28 +29,46 @@
 
     <main class="container">
         <div class="d-flex align-items-center justify-content-center">
-            <div class="d-block p-3 mt-4 mb-3 shadow rounded" style="background-color: antiquewhite; min-width: 500px;">
-                <p class="text-center">Avalie seu motorista</p>
+            <div class="d-block p-3 mt-4 mb-3 shadow rounded" style="background-color: antiquewhite; max-width: 500px;">
+                <p class="text-center fw-bold fs-2">Avalie seu motorista</p>
                 <img src="https://picsum.photos/200" alt="" class="rounded mx-auto d-block">
-                <p class="text-center mb-2">Conte nos um pouco de sua experiência!</p>
-                <div class="d-flex justify-content-start mt-2">
-                    <p>Condições da Van</p>
-                    <p>hsaui</p>
+                <p class="text-center fw-medium fs-4 p-3">Conte nos um pouco de sua experiência!</p>
+                <div class="row">
+                    <div class="col-5 p-2">
+                        <p class="fs-5">Condições da Van</p>
+                    </div>
+                    <div class="col-7 p-2">
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
+
+                    <div class="col-5 p-2">
+                        <p class="fs-5">Pontualidade</p>
+                    </div>
+                    <div class="col-7 p-2">
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
+                    <div class="col-5 p-2">
+                        <p class="fs-5">Tratamento do motorista</p>
+                    </div>
+                    <div class="col-7 p-2">
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star-fill rating-color"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-start">
-                    <p>Condições da Van</p>
-                    <p>hsaui</p>
-                </div>
-                <div class="d-flex justify-content-start">
-                    <p>Pontualidade</p>
-                    <p>hsaui</p>
-                </div>
-                <div class="d-flex justify-content-start">
-                    <p>Tratamento do motorista</p>
-                    <p>hsaui</p>
-                </div>
-                <p>Comentários gerais</p>
-                <textarea class="w-100 comment-textarea" name="" id="" cols="" rows="6"></textarea>
+
+                <p class="fs-5 pt-3">Comentários gerais</p>
+                <textarea class="w-100 comment-textarea" name="" id="" cols="" rows="3"></textarea>
 
                 <button class="btn btn-primary w-100">Salvar</button>
             </div>

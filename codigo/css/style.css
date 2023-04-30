@@ -19,3 +19,7 @@ Para o border RADIUS poderemos usar 7px, nao é tao redondo mas tambem nao é ta
 .comment-textarea {
   resize: none;
 }
+
+.rating-color{
+  color:#fbc634 !important;
+}
