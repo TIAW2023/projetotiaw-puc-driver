@@ -1,0 +1,171 @@
+/* webkit solution */
+::-webkit-input-placeholder {
+    font-family: FontAwesome;
+    text-align: left;
+}
+
+/* mozilla solution */
+#search-input:-moz-placeholder {
+    font-family: FontAwesome;
+    text-align: left;
+}
+
+.navbar {
+    padding: 30px;
+    margin-bottom: 3em;
+}
+
+.navbar-brand,
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+.navbar-vertical-divider {
+    display: inline-block;
+    height: 20px;
+    margin: 0 10px;
+    border-left: 1px solid #ccc;
+}
+
+.ml-auto a {
+    color: #000000;
+    font-weight: bold;
+}
+
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #000000;
+}
+
+.navbar-nav .nav-item:last-child .nav-link i {
+    font-size: 24px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    /* para redimensionar a imagem sem distorção */
+}
+
+#search-input {
+    border-radius: 20px;
+}
+
+.btn-pesquisar {
+    border-radius: 40px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.btn-pesquisar:hover {
+    border-radius: 40px;
+    background: #cdcdcd;
+    color: #000000;
+}
+
+form {
+    border: 1px solid #dcdcdc;
+    padding: 20px;
+}
+
+.filtros {
+    font-size: 25px;
+}
+
+.form-group .has-search {
+    margin-top: 3em;
+}
+
+.estrelas {
+    margin-top: 1em;
+}
+
+.estrelas input[type=radio] {
+    display: none;
+}
+
+.estrelas label i.fa {
+    font-size: 2.5em
+}
+
+.estrelas label i.fa:before {
+    content: '\f005';
+    color: #000000;
+}
+
+.estrelas input[type=radio]:checked~label i.fa:before {
+    color: #CCC;
+}
+
+.destaque {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.page-item.active .page-link {
+    background: #000000;
+    border: #000000;
+}
+
+.page-link {
+    color: #000000;
+}
+
+.form-check-input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+.bairros-ate {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+.van-moto {
+    margin-top: 3em;
+}
+
+.img-moto {
+    max-height: 200px;
+    /* altura máxima */
+    width: 100%;
+    /* largura 100% */
+    object-fit: cover;
+    /* ajustar a imagem para cobrir todo o espaço disponível */
+}
+
+.img-100 {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 400px) {
+    .bairros {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bairros span{
+        margin: 5px;
+        text-align: center;
+    }
+}
