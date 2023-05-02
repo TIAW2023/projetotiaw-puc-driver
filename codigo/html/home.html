@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <nav id="navbar">
         <div id="navbar-container">
             <h1 class="logo">PUC DRIVER</h1>
@@ -23,11 +24,13 @@
         </div>
     </nav>
 
+    <!-- SOBRE NÓS -->
     <div class="container-fluid" id="inicio-home">
         <div class="row">
             <div class="col">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 h-100" id="inicio">
+                        <!-- TEXTOS -->
                         <h3 id="headline">
                             ENCONTRAR SUA VAN UNIVERSITARIA <br>NUNCA FOI TÃO FÁCIL
                             <i class="fa-solid fa-van-shuttle"></i>
@@ -40,33 +43,32 @@
                             <strong>MOTORISTAS</strong> faça
                             seu cadastro tambem, venha fazer parte.
                         </p>
-                        <button type="button" class="bnt"><i class="bi bi-box-arrow-in-right"></i>FAÇA SEU CADASTRO
+                        <!-- BOTAO CADASTRO -->
+                        <button type="button" id="bnt"><i class="bi bi-box-arrow-in-right"></i>FAÇA SEU CADASTRO
                             AQUI</button>
                     </div>
-                    <!-- SERAFIM COLOQUE O LOGIN AQUI -->
-                    <div class="container-fluid col-lg-6 col-md-9 col-sm-12 mt-5">
-                        <div class="card mb-3" style="max-width: 640px; height: 400px;">
-                            <div class="row g-0">
-                                <div class="col-md-6">
-                                    <img src="..." class="img-fluid rounded-start "
-                                        alt="Aqui ficará a logo da PUC DRIVER">
+                    <!-- LOGIN -->
+                    <div id="login" class="container-fluid col-lg-6 col-md-9 col-sm-12 mt-5">
+                        <div class="card mb-3">
+                            <!-- style="max-width: 640px; height: 400px;" -->
+                            <div class="row g-0" id="login-card">
+                                <!-- LOGO PUCDRIVER -->
+                                <div class="col-md-5">
+                                    <img src="/codigo/img/logo-pucdriver.png" id="logo-pucdriver" class="img-fluid rounded-start " alt="Logo PUC DRIVER">
                                 </div>
-                                <div class="col-md-6">
+                                <!-- CAIXAS PARA DIGITAR -->
+                                <div class="col-md-7">
                                     <div class="card-body pt-5">
                                         <h5 class="card-title">Login</h5><br>
-                                        <p class="card-text d-grid col-12 mx-aut">E-mail:<input type="email"
-                                                placeholder="example:example@gmail.com"></input></p>
-                                        <p class="card-text d-grid col-12 mx-auto">Senha<small
-                                                class="text-body-secondary"><input type="password"
-                                                    class="col-12"></small></p>
-                                        <div class="mb-2 d-flex justify-content-between"> <input type="checkbox"
-                                                value="1">Lembrar-se</input> <a href="#" target="_blank"> Esqueci Minha
-                                                Senha </a></div>
-                                        <div class="d-grid col-12 mx-auto"><button type="button"
-                                                class="btn btn-lg btn-success">Sing in</button></div>
-                                        <p class="mt-2 d-flex justify-content-center"><a href="#">Faça Aqui Seu
-                                                Cadastro!</a></p>
-
+                                        <p class="card-text d-grid col-12 mx-aut">E-mail:<input id="imput-login" type="email" placeholder="example@gmail.com"></input></p>
+                                        <p class="card-text d-grid col-12 mx-auto">Senha<small class="text-body-secondary"><input id="imput-login" type="password" class="col-12"></small></p>
+                                        <div class="mb-2 d-flex"> 
+                                            <input type="checkbox" value="1">Lembrar-se</input> <a href="#" target="_blank"> Esqueci Minha Senha </a>
+                                        </div>
+                                        <div class="d-grid col-12 mx-auto">
+                                            <button type="button"class="btn" id="bnt">ENTRAR</button>
+                                        </div>
+                                        <p class="mt-2 d-flex justify-content-center"><a href="#">Faça Aqui Seu Cadastro!</a></p>
                                     </div>
                                 </div>
                             </div>

@@ -42,7 +42,7 @@
 #headline{
     align-items: center;
 }
-.bnt{
+#bnt{
     border: 0px;
     background-color: #000000;
     color: white;
@@ -54,11 +54,30 @@
     width: 220px;
     margin-top: 40px;
 }
-.bnt:hover{
+#bnt:hover{
     background-color:#808080;
     color: black;
     font-weight: bolder;
     width: 221px;
+}
+
+#login{
+    padding: 65px;
+}
+#login-card{
+    background-color:white;
+    border-radius: 5px;
+    color:#000000;
+}
+#imput-login{
+    border-radius: 5px;
+    border:none;
+    background-color:#808080;
+    color:#000000;
+}
+#logo-pucdriver{
+    margin: 40px;
+    margin-top: 70px;
 }
 
 #desenvolvedores-container{
@@ -83,3 +102,8 @@
     width: 130px;
     align-items: center;
 }
+
+
+
+/* RESPONSIVIDADE */
+
