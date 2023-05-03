@@ -1,0 +1,7 @@
+[data-tab-info] {
+    display: none;
+}
+  
+.active[data-tab-info] {
+    display: block;
+}
