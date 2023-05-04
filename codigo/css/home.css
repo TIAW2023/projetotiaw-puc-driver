@@ -41,6 +41,7 @@
 }
 #headline{
     align-items: center;
+    font-size: 1.9rem;
 }
 #bnt{
     border: 0px;
@@ -107,3 +108,43 @@
 
 /* RESPONSIVIDADE */
 
+@media screen and (min-width: 320px) and (max-width: 530px){
+    .logo{
+        font-size: 27px;
+        text-align: center;
+    }
+    #navbar-container{
+        display: inline;
+    }
+    #navbar-items{
+        text-align: center;
+    }
+}
+
+/* @media screen and (min-width: 536px) and (max-width: 759px){
+    #inicio{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 0px;
+    }
+    #headline{
+        font-size: 2.3rem;
+        text-align: center;
+    }
+    #texto{
+        font-size: 1.rem;
+        text-align: center;
+    }
+    #bnt{
+        align-items: center;
+        margin: 0px;
+        margin-left: 130px;
+    }
+
+    #login{
+        padding-top: 0px;
+    }
+    #logo-pucdriver{
+        display: none;
+    }
+} */
