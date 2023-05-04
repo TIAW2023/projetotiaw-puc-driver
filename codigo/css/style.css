@@ -7,7 +7,7 @@ Para botoes que possuirem a funcionalidade HOVER usar este cinza mais escuro: #8
 Usaremos letras BRANCAS quando for BACKGROUND preto e letras PRETAS para BACKGROUND cinza e o cinza mais escuro.
 
 Para o border RADIUS poderemos usar 7px, nao é tao redondo mas tambem nao é tao quadrado.
-*/
+*/  
 
 .flex-wrapper {
   display: flex;
@@ -22,4 +22,11 @@ Para o border RADIUS poderemos usar 7px, nao é tao redondo mas tambem nao é ta
 
 .rating-color{
   color:#fbc634 !important;
+}
+
+.fixarRodape {
+  bottom: 0;
+  position: fixed;
+  width: 90%;
+  text-align: center;
 }
