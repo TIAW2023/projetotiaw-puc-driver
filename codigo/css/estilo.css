@@ -1,0 +1,74 @@
+/* Define a cor de fundo como amarela */
+body {
+    background-color: #818181;
+  }
+  
+  /* Define a cor do texto como preta */
+  body {
+    color: #000000;
+  }
+  
+  /* Define as regras de estilo para os botões */
+  .btn {
+    background-color: #000000;
+    border-color: #000000;
+    color: #FFFFFF;
+  }
+  
+  .btn:hover {
+    background-color: #F7DC6F;
+    border-color: #F7DC6F;
+    color: #000000;
+  }
+  
+  /* Define as regras de estilo para os campos de entrada de texto */
+  .form-control {
+    border-color: #000000;
+  }
+  
+  .form-control:focus {
+    border-color: #F7DC6F;
+    box-shadow: none;
+  }
+  
+  /* Define as regras de estilo para os rótulos dos campos */
+  .form-label {
+    color: #000000;
+  }
+  
+  /* Define as regras de estilo para as tabelas */
+  .table {
+    border-color: #000000;
+  }
+  
+  .table thead {
+    background-color: #F7DC6F;
+    color: #000000;
+  }
+  
+  .table th, .table td {
+    border-color: #000000;
+  }
+  
+  /* Define as regras de estilo para as caixas de seleção */
+  .form-check-input:checked {
+    background-color: #F7DC6F;
+    border-color: #000000;
+  }
+  
+  /* Define as regras de estilo para os alertas */
+  .alert {
+    background-color: #F7DC6F;
+    border-color: #000000;
+    color: #000000;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #F7DC6F; /* adiciona um fundo amarelo para a div */
+  }
+  
+  
