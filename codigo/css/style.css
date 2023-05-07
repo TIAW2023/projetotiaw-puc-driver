@@ -20,6 +20,10 @@ Para o border RADIUS poderemos usar 7px, nao é tao redondo mas tambem nao é ta
   resize: none;
 }
 
+.default-background-color {
+  background-color: #DCDCDC;
+}
+
 .rating-color{
   color:#fbc634 !important;
 }
