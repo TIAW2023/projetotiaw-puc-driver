@@ -40,13 +40,8 @@
     font-weight: bolder;
 }
 
-#navbar-items li{
-    padding: 15px;
-    padding-top: 25px;
-}
-
 #inicio{
-    padding: 110px;
+    padding:80px;
 }
 #inicio-home{
     background-color: #DCDCDC;
@@ -152,7 +147,7 @@
     }
 }
 
-/* @media screen and (min-width: 536px) and (max-width: 759px){
+@media screen and (min-width: 536px) and (max-width: 759px){
     #inicio{
         padding-left: 20px;
         padding-right: 20px;
@@ -178,4 +173,4 @@
     #logo-pucdriver{
         display: none;
     }
-} */
+}
