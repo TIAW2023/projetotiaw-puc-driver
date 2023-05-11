@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+#cadastrar{
+    background-color: #dcdcdc;
+    align-items: center;
+    margin-top: 300px;
+    border-radius: 14px;
+}
+h3{
+    text-align: center;
+}
+
+#imput-login{
+    border-radius: 10px;
+    border:none;
+    padding: 3px;
+}
+
+#bnt-adicionar{
+    color: white;
+    background-color: #000000;
+    margin-bottom: 15px;
+    width: 120px;
+}
+#bnt-adicionar:hover{
+    background-color: #808080;
+    color: black;
+}

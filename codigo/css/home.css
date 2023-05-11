@@ -24,9 +24,22 @@
 }
 #navbar-items{
     display: flex;
-    list-style: none;
     text-transform: uppercase;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+    border: none;
+    display: inline;
+    margin: 24px;
 }
+#navbar-items:hover{
+    background-color: #808080;
+    border-radius: 17px;
+    padding: 7px;
+    color:#000000;
+    font-weight: bolder;
+}
+
 #navbar-items li{
     padding: 15px;
     padding-top: 25px;
@@ -37,17 +50,20 @@
 }
 #inicio-home{
     background-color: #DCDCDC;
-    height: 70vh;
 }
 #headline{
     align-items: center;
     font-size: 1.9rem;
 }
+#texto{
+    font-size: 1.2rem;
+}
+
 #bnt{
     border: 0px;
     background-color: #000000;
     color: white;
-    border-radius: 7px;
+    border-radius: 14px;
     font-size: 0.9rem;
     padding: 10px;
     display: flex;
@@ -62,28 +78,43 @@
     width: 221px;
 }
 
+#bnt-entrar{
+    background-color: #000000;
+    color: white;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
 #login{
     padding: 65px;
+    width: 600px;
+    text-align: center;
+    text-transform: uppercase;
 }
+#text-imput{
+    text-align: left;
+}
+
 #login-card{
-    background-color:white;
-    border-radius: 5px;
+    background-image: linear-gradient(120deg, #dcdcdc, #808080);
     color:#000000;
+    border-radius: 14px;
 }
 #imput-login{
-    border-radius: 5px;
-    border:none;
-    background-color:#808080;
+    border-radius: 10px;
+    border: none;
+    background-color:white;
     color:#000000;
 }
 #logo-pucdriver{
-    margin: 40px;
-    margin-top: 70px;
+    margin: 1px;
+    width: 140px;
 }
 
 #desenvolvedores-container{
     background-color: #DCDCDC;
-    height: 21.7vh;
 }
 #desenvolvedores{
     background-color: #808080;

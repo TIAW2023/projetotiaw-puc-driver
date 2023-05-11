@@ -17,19 +17,19 @@
     <nav id="navbar">
         <div id="navbar-container">
             <h1 class="logo">PUC DRIVER</h1>
-            <ul id="navbar-items">
-                <li>ENTRAR</li>
-                <li>CADASTRE-SE</li>
-            </ul>
+            <div class="items">
+                <button type="text" id="navbar-items">ENTRAR</button>
+                <button type="text" id="navbar-items">CADASTRE-SE</button>
+            </div>
         </div>
     </nav>
 
     <!-- SOBRE NÓS -->
-    <div class="container-fluid col-12 h-100" id="inicio-home">
+    <div class="container-fluid h-100" id="inicio-home">
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class=" col-lg-6 col-md-12 h-100" id="inicio">
+                    <div class="col-6 h-100" id="inicio">
                         <!-- TEXTOS -->
                         <h3 id="headline">
                             ENCONTRAR SUA VAN UNIVERSITARIA <br>NUNCA FOI TÃO FÁCIL
@@ -47,25 +47,28 @@
                             AQUI</button>
                     </div>
                     <!-- LOGIN -->
-                    <div id="login" class="container-fluid col-lg-6 col-md-9 col-sm-12 mt-5">
+                    <div id="login" class="container-fluid col-6 mt-5">
                         <div class="card mb-3">
-                            <!-- style="max-width: 640px; height: 400px;" -->
-                            <div class="row g-0" id="login-card">
-                                <!-- LOGO PUCDRIVER -->
-                                <div class="col-md-5">
-                                    <img src="/codigo/img/logo-pucdriver.png" id="logo-pucdriver" class="img-fluid rounded-start " alt="Logo PUC DRIVER">
-                                </div>
-                                <!-- CAIXAS PARA DIGITAR -->
-                                <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-12" id="login-card">
                                     <div class="card-body pt-5">
                                         <h5 class="card-title">Login</h5><br>
-                                        <p class="card-text d-grid col-12 mx-aut">E-mail:<input id="imput-login" type="email" placeholder="example@gmail.com"></input></p>
-                                        <p class="card-text d-grid col-12 mx-auto">Senha<small class="text-body-secondary"><input id="imput-login" type="password" class="col-12"></small></p>
-                                        <div class="mb-2 d-flex "> 
-                                            <input type="checkbox" value="1">Lembrar-se</input> <a class="px-5" href="#" target="_blank"> Esqueci Minha Senha </a>
+                                        <p class="card-text d-grid col-12 mx-aut" id="text-imput">E-mail:<input
+                                                id="imput-login" type="email" placeholder="example@gmail.com"></input>
+                                        </p>
+                                        <p class="card-text d-grid col-12 mx-auto" id="text-imput">Senha<small
+                                                class="text-body-secondary"><input id="imput-login" type="password"
+                                                    class="col-12"></small></p>
+                                        <div class="mb-2 d-flex ">
+                                            <a class="px-5" href="#" target="_blank">Esqueci Minha Senha</a>
                                         </div>
-                                        <div class="d-grid col-12 mx-auto">
-                                            <button type="button"class="btn" id="bnt">ENTRAR</button>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <center><button type="button" class="btn"
+                                                            id="bnt-entrar">ENTRAR</button></center>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
