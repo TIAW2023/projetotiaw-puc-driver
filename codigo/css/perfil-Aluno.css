@@ -1,0 +1,29 @@
+
+#imgAluno {
+    background: lightblue;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+#containerFotoPerfil {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+.aluno-perfil-card {
+    
+    max-width: 450px;
+    height: 450px;
+    background-color: white;
+    border: 1px solid black;
+}
