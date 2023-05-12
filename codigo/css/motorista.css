@@ -1,38 +1,3 @@
-.navbar {
-    padding: 30px;
-    margin-bottom: 3em;
-}
-
-.navbar-brand,
-.navbar-nav {
-    display: flex;
-    align-items: center;
-}
-
-
-.navbar-brand img {
-    height: 50px;
-}
-
-.navbar-nav .nav-item .nav-link {
-    font-weight: bold;
-    color: #333;
-    margin-right: 10px;
-    font-size: 30px;
-}
-
-.navbar-vertical-divider {
-    display: inline-block;
-    height: 20px;
-    margin: 0 10px;
-    border-left: 1px solid #ccc;
-}
-
-.ml-auto a i {
-    color: black;
-    font-size: 50px;
-}
-
 .img-100 {
     width: 100px;
     height: 100px;
@@ -62,22 +27,6 @@
   font-size: 60px;
 }
 
-
-.aluno-nav{
-    border: 1px solid #000000;
-}
-
-.nav-tabs {
-    border-bottom: 1px solid #000000;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
-    border: 1px solid #000000;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover{
-    border: 1px solid #cdcdcd;
-}
 
 @media screen and (max-width: 768px) {
     .navbar-vertical-divider {

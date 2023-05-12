@@ -34,3 +34,7 @@ Para o border RADIUS poderemos usar 7px, nao é tao redondo mas tambem nao é ta
   width: 90%;
   text-align: center;
 }
+
+.perfil-container{
+  max-width: 900px;
+}
