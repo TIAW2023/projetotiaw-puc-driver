@@ -20,11 +20,6 @@ function executeRating(className){
 }
 
 $('#saveComment').click(() => {
-    let conditionStars = $('.condition').length
-    let punctualityStars = $('.punctuality').length
-    let treatmentStars = $('.treatment').length
-    let comment = $('#commentArea').val()
-
     saveToLocalStorage(
         $('.condition').length,
         $('.punctuality').length,
@@ -34,17 +29,25 @@ $('#saveComment').click(() => {
 })
 
 function saveToLocalStorage(conditionStars, punctualityStars, treatmentStars, comment){
-    var obj = new Object();
-    obj.conditionStars = conditionStars;
-    obj.punctualityStars = punctualityStars;
-    obj.treatmentStars = treatmentStars;
-    obj.comment = comment;
+    var values = {
+        conditionStars: conditionStars,
+        punctualityStars: punctualityStars,
+        treatmentStars: treatmentStars,
+        comment: comment
+    }
 
     let storedFeedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
-    //storedFeedbacks.push(JSON.stringify(obj));
-    console.log(typeof storedFeedbacks);
 
-    localStorage.setItem('feedbacks', JSON.stringify([obj]));
+    if(storedFeedbacks.length == 0){
+        arrayData = []
+        arrayData.push(values)
+        localStorage.setItem('feedbacks', JSON.stringify(arrayData))
+    } else {
+        storedFeedbacks.push(values)
+        localStorage.setItem('feedbacks', JSON.stringify(storedFeedbacks))
+    }
+
+    alert("Comentário salvo com sucesso!    ")
 }
 
 executeRating("condition");
