@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Aluno 01 </title>
+    <title>Cadastro </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
@@ -35,50 +35,73 @@
     </div>
    </header>
     <div class="container">
-        <form>
             <h2 class="text-center">Dados Básicos Aluno</h2>
-            <form action="#">
+            <form action="#" id="formularioAluno">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nome">Nome completo:</label>
-                            <input type="text" class="form-control" id="nome" name="nome" required>
+                            <input type="text" class="form-control" id="nomeAluno" name="nomeAluno" required>
                         </div>
-                        <div class="form-group">
+                         <div class="form-group">
                             <label for="cpf">CPF:</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" required>
+                            <input type="text" class="form-control" id="cpfAluno" name="cpfAluno" required>
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                            <input type="tel" class="form-control" id="telefoneAluno" name="telefoneAluno" required>
                         </div>
                     </div>
                     
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nome">Matricula:</label>
-                            <input type="tel" class="form-control" id="matricula" name="matricula" required>
-                        </div>
+                            <input type="tel" class="form-control" id="matriculaAluno" name="matriculaAluno" required>
+                        </div> 
                         <div class="form-group">
                             <label for="email">E-mail:</label>
-                            <input type="email" class="form-control" id="email" name="email" required pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}">
+                            <input type="email" class="form-control" id="emailAluno" name="emailAluno" required pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}">
                           </div>
                 
                         <div class="form-group">
                             <label for="senha">Senha:</label>
-                            <input type="password" class="form-control" id="senha" name="senha" required>
+                            <input type="password" class="form-control" id="senhaAluno" name="senhaAluno" required>
                         </div>
                     </div>
                 </div>
-            </form>
+            <h2 class="text-center">Informações Aluno </h2>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="placa">Cep:</label>
+                        <input type="number" class="form-control" id="cepAluno" name="cepAluno" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Endereço:</label>
+                        <input type="text" class="form-control" id="enderecoAluno" name="enderecoAluno" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chassi">Turno:</label>
+                        <input type="text"   class="form-control" id="turnoAluno" name="turnoAluno" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="ano">Bairro</label>
+                        <input type="text" class="form-control" id="bairroAluno" name="bairroAluno" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Nº</label>
+                        <input type="text" class="form-control" id="numeroAluno" name="numeroAluno" required>
+                    </div>
+                </div>
+            </div> 
             <div class="text-center">
-                <a href="CadastroAluno2.html" class="btn btn-primary" type="submit" onclick="return validateForm()">Próximo</a>
-
-
+                <a href="../home&Login.html" class="btn btn-secondary">Voltar</a>
+                <input class="btn btn-primary" type="submit" value="Cadastrar">
             </div>
         </form>
-    </div>
-    
+     </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <footer class="row py-5 my-5 border-top border-dark d-flex justify-content-center">
@@ -137,8 +160,13 @@
         }
         return true;
       }
+
+
+
+
+
     </script>
-    <script src="/codigo/js/cadastro.js"></script>
+    <script src="../../js/cadastroAluno.js"></script>
     <script src="/codigo/js/footer.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/Xp7VhJXp1KkaBtb"
