@@ -1,3 +1,35 @@
+#navbar{
+  background-color: black;
+  color: white;
+  height: 110px;
+}
+#navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo{
+  font-size: 2rem;
+  margin-top: 33px;
+  margin-left: 170px;
+}
+#navbar-items{
+  display: flex;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  border: none;
+  display: inline;
+  margin: 12px;
+  margin-top: 37px;
+}
+#navbar-items:hover{
+  background-color: #808080;
+  border-radius: 15px;
+  padding: 6px;
+  color:#000000;
+}
 
 body {
     background-color: #DCDCDC;
@@ -64,5 +96,3 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background-color: #808080; 
   }
-  
-  
