@@ -6,7 +6,7 @@ formulario.addEventListener('submit', e =>{
     console.log('salvar');
     var nome = document.getElementById('nomeAluno').value;
     var matricula = document.getElementById('matriculaAluno').value;
-     var cpf = document.getElementById('cpfAluno').value;
+    var cpf = document.getElementById('cpfAluno').value;
     var telefone = document.getElementById('telefoneAluno').value;
     var email = document.getElementById('emailAluno').value;
     var senha = document.getElementById('senhaAluno').value; 

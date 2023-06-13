@@ -95,12 +95,19 @@
     color:#000000;
     border-radius: 14px;
 }
-#imput-login{
+#imput-login-1{
     border-radius: 10px;
     border: none;
     background-color:white;
     color:#000000;
 }
+#imput-login-2{
+    border-radius: 10px;
+    border: none;
+    background-color:white;
+    color:#000000;
+}
+
 #logo-pucdriver{
     margin: 1px;
     width: 140px;

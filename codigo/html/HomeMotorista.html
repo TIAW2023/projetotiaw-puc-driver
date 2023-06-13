@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/motorista.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/codigo/css/cadastrarpassageiros.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body class="fundoPadrao">
@@ -58,106 +60,64 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- MODAL -->
                     <div class="col-12 col-md-6">
-                        <div class="row aluno">
-                            <div class="col-12 col-md-5 img-aluno">
-                                <div class="d-flex">
-                                    <div class="align-items-center justify-content-center">
-                                        <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                            alt="Foto do Aluno" class="rounded-circle img-100">
-                                        <p>Nome do Aluno</p>
-                                        <p>(11) 99999-9999</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                <div class="d-flex align-items-center justify-content-center h-100">
-                                    <div>
-                                        <p>Rua Alfredo Major, 125</p>
-                                        <p>Centro</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-12 col-md-6">
-                        <div class="row aluno">
-                            <div class="col-12 col-md-5 img-aluno">
-                                <div class="d-flex">
-                                    <div class="align-items-center justify-content-center">
-                                        <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                            alt="Foto do Aluno" class="rounded-circle img-100">
-                                        <p>Nome do Aluno</p>
-                                        <p>(11) 99999-9999</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                <div class="d-flex align-items-center justify-content-center h-100">
-                                    <div>
-                                        <p>Rua Alfredo Major, 125</p>
-                                        <p>Centro</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <div class="row aluno">
-                            <div class="col-12 col-md-5 img-aluno">
-                                <div class="d-flex">
-                                    <div class="align-items-center justify-content-center h-100">
-                                        <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                            alt="Foto do Aluno" class="rounded-circle img-100">
-                                        <p>Nome do Aluno</p>
-                                        <p>(11) 99999-9999</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                <div class="d-flex align-items-center justify-content-center h-100">
-                                    <div>
-                                        <p>Rua Alfredo Major, 125</p>
-                                        <p>Centro</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="row aluno">
-                            <div class="col-12 col-md-5 img-aluno">
-                                <div class="d-flex">
-                                    <div class="align-items-center justify-content-center">
-                                        <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                            alt="Foto do Aluno" class="rounded-circle img-100">
-                                        <p>Nome do Aluno</p>
-                                        <p>(11) 99999-9999</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                <div class="d-flex align-items-center justify-content-center h-100">
-                                    <div>
-                                        <p>Rua Alfredo Major, 125</p>
-                                        <p>Centro</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <div class="row aluno-plus d-flex align-items-center justify-content-center">
+                        <!-- BOTAO MODAL -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
                             <i class="fa fa-plus"></i>
+                        </button>
+
+                        <!-- CORPO MODAL -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div id="modal" class="modal-content">
+                                    <div class="modal-body">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"><i class="bi bi-x-circle"></i></button>
+                                        <h3>Cadastrar passageiros</h3>
+                                        <div class="card-body pt-5" id="text-modal">
+                                            <div class="col">
+                                                <div class="row">
+                                                    <p class="card-text col-6" id="text-imput">Matricula PUC</p>
+                                                    <input class="col-6" id="imput-login" type="text"
+                                                        placeholder="000000"></input>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <p class="card-text col-6" id="text-imput">Nome</p>
+                                                    <input class="col-6" id="imput-login" type="text"
+                                                        placeholder="Aaaaaa Aaaaaa"></input>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <p class="card-text col-6" id="text-imput">Telefone</p>
+                                                    <input class="col-6" id="imput-login" type="tel"
+                                                        placeholder="(00)00000-0000"></input>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <p class="card-text col-6" id="text-imput">Endereço</p>
+                                                    <input class="col-6" id="imput-login" type="tel"
+                                                        placeholder="R. Aaaa Aaaa"></input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="bnt-adicionar" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" id="bnt-adicionar" class="btn btn-primary">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <!-- FIM DO MODAL -->
                 </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -185,106 +145,66 @@
                                 </div>
                             </div>
                         </div>
-    
+
+                        <!-- MODAL -->
                         <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center h-100">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno-plus d-flex align-items-center justify-content-center">
+                            <!-- BOTAO MODAL -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal-tarde">
                                 <i class="fa fa-plus"></i>
+                            </button>
+
+                            <!-- CORPO DO MODAL -->
+                            <div class="modal fade" id="exampleModal-tarde" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div id="modal" class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"><i class="bi bi-x-circle"></i></button>
+                                            <h3>Cadastrar passageiros</h3>
+                                            <div class="card-body pt-5" id="text-modal">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Matricula PUC</p>
+                                                        <input class="col-6" id="imput-login" type="text"
+                                                            placeholder="000000"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Nome</p>
+                                                        <input class="col-6" id="imput-login" type="text"
+                                                            placeholder="Aaaaaa Aaaaaa"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Telefone</p>
+                                                        <input class="col-6" id="imput-login" type="tel"
+                                                            placeholder="(00)00000-0000"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Endereço</p>
+                                                        <input class="col-6" id="imput-login" type="tel"
+                                                            placeholder="R. Aaaa Aaaa"></input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="bnt-adicionar" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="button" id="bnt-adicionar"
+                                                class="btn btn-primary">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- FIM DO MODAL -->
                     </div>
                 </div>
             </div>
@@ -313,106 +233,66 @@
                                 </div>
                             </div>
                         </div>
-    
+
+                        <!-- MODAL -->
                         <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center h-100">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno">
-                                <div class="col-12 col-md-5 img-aluno">
-                                    <div class="d-flex">
-                                        <div class="align-items-center justify-content-center">
-                                            <img src="https://www.une.org.br/wp-content/uploads/2021/09/o-gndi-tem-planos-para-universitarios.jpg"
-                                                alt="Foto do Aluno" class="rounded-circle img-100">
-                                            <p>Nome do Aluno</p>
-                                            <p>(11) 99999-9999</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <div class="d-flex align-items-center justify-content-center h-100">
-                                        <div>
-                                            <p>Rua Alfredo Major, 125</p>
-                                            <p>Centro</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-12 col-md-6">
-                            <div class="row aluno-plus d-flex align-items-center justify-content-center">
+                            <!-- BOTAO MODAL -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal-noite">
                                 <i class="fa fa-plus"></i>
+                            </button>
+
+                            <!-- CORPO DO MODAL -->
+                            <div class="modal fade" id="exampleModal-noite" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div id="modal" class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"><i class="bi bi-x-circle"></i></button>
+                                            <h3>Cadastrar passageiros</h3>
+                                            <div class="card-body pt-5" id="text-modal">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Matricula PUC</p>
+                                                        <input class="col-6" id="imput-login" type="text"
+                                                            placeholder="000000"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Nome</p>
+                                                        <input class="col-6" id="imput-login" type="text"
+                                                            placeholder="Aaaaaa Aaaaaa"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Telefone</p>
+                                                        <input class="col-6" id="imput-login" type="tel"
+                                                            placeholder="(00)00000-0000"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <p class="card-text col-6" id="text-imput">Endereço</p>
+                                                        <input class="col-6" id="imput-login" type="tel"
+                                                            placeholder="R. Aaaa Aaaa"></input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="bnt-adicionar" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="button" id="bnt-adicionar"
+                                                class="btn btn-primary">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- FIM DO MODAL -->
                     </div>
                 </div>
             </div>
@@ -425,6 +305,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
 
 </html>
