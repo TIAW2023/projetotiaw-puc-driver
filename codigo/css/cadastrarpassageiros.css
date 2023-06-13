@@ -16,7 +16,28 @@ h3{
     font-size: 1.1rem;
 }
 
-#imput-login{
+#imput-login-matricula{
+    border-radius: 10px;
+    border:none;
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+#imput-login-nome{
+    border-radius: 10px;
+    border:none;
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+#imput-login-telefone{
+    border-radius: 10px;
+    border:none;
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+#imput-login-endereço{
     border-radius: 10px;
     border:none;
     padding: 3px;
