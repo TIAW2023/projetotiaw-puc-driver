@@ -6,13 +6,8 @@
         <div class="col-3">
             <p>Quais bairros você atende?</p>
         </div>
-        <div class="col-9">
-            <input type="text" class="mb-2 w-100" value="" tabindex="1" autocomplete="off" >
-            <span class="badge text-bg-primary">São Gabriel</span>
-            <span class="badge text-bg-primary">Santa Monica</span>
-            <span class="badge text-bg-primary">Savassi</span>
-            <span class="badge text-bg-primary">Pampulha</span>
-            <span class="badge text-bg-primary">Cidade Nova</span>
+        <div class="col-9" id="bairros-atendidos">
+            <input type="search" class="mb-2 w-100" value="" tabindex="1" autocomplete="off" id="bairros">
         </div>
         <div class="col-3">
             <p>Qual turno atendido?</p>
@@ -20,22 +15,118 @@
         <div class="col-9">
             <ul class="list-group mt-2">
                 <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
-                  <label class="form-check-label stretched-link" for="firstCheckboxStretched">Manhã</label>
+                  <input class="form-check-input me-1" type="checkbox" value="" id="manha" name="turno">
+                  <label class="form-check-label stretched-link" for="manha">Manhã</label>
                 </li>
                 <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
-                  <label class="form-check-label stretched-link" for="secondCheckboxStretched">Tarde</label>
+                  <input class="form-check-input me-1" type="checkbox" value="" id="tarde" name="turno">
+                  <label class="form-check-label stretched-link" for="tarde">Tarde</label>
                 </li>
                 <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
-                  <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Noite</label>
+                  <input class="form-check-input me-1" type="checkbox" value="" id="noite" name="turno">
+                  <label class="form-check-label stretched-link" for="noite">Noite</label>
                 </li>
               </ul>
         </div>
     </div>
 
     <div class="d-flex justify-content-center mt-2">
-        <button class="btn btn-primary">Salvar</button>
+        <button id="btn-disponibilidade" class="btn btn-primary">Salvar</button>
     </div>
 </div>
+
+<script>
+    $(document).ready(() => {
+        let motorista = loadDadosBasicos();
+
+        carregarDadosMotorista(motorista)
+
+        onBairroAdicionado()
+
+        $('#btn-disponibilidade').click(() => {
+            let turnoJson = turnoToJson(
+                $('#manha').is(":checked"),
+                $('#tarde').is(":checked"),
+                $('#noite').is(":checked")
+            )
+
+            let bairrosAtendidos = []
+
+            $('.badge').each((index, element) => {
+                bairrosAtendidos.push(element.innerHTML)
+            })
+
+            salvarDisponibilidaedMotorista(motorista, turnoJson, bairrosAtendidos)
+        })
+    })
+
+    function carregarDadosMotorista(motorista){
+        //turno
+        let turnoJson = JSON.parse(motorista.turnoCad)
+
+        if(turnoJson.manha){
+            $('#manha').attr('checked', 'checked')
+        }
+        if(turnoJson.tarde){
+            $('#tarde').attr('checked', 'checked')
+        }
+        if(turnoJson.noite){
+            $('#noite').attr('checked', 'checked')
+        }
+
+        //bairros atendidos
+        motorista.bairrosCad.forEach(element => {
+            $('#bairros-atendidos').append(
+                `<span class="badge text-bg-primary m-1">${element}</span>`
+            )
+        });
+    }
+
+    function onBairroAdicionado(){
+        $("#bairros").on('search', function () {
+            $('#bairros-atendidos').append(
+                `<span class="badge text-bg-primary">${$(this).val()}</span>`
+            )
+        });
+    }
+
+    function salvarDisponibilidaedMotorista(motorista, turnoJson, bairrosAtendidos){
+        try{
+            let motoristas = JSON.parse(localStorage.getItem("listaUser") || []);
+            let motoristaAtualizado = motoristas.filter(obj => obj.cpfCad != motorista.cpfCad )
+
+            motorista.turnoCad = turnoJson
+            motorista.bairrosCad = bairrosAtendidos
+
+            motoristaAtualizado.push(motorista)
+            localStorage.removeItem('listaUser')
+            localStorage.setItem('listaUser',JSON.stringify(motoristaAtualizado))
+            alert('Disponibilidade salva com sucesso!')
+        }catch(e){
+            alert('Erro ao salvar')
+        }
+    }
+
+    function turnoToJson(isManhaChecked, isTardeChecked, isNoiteChecked){
+        return JSON.stringify(
+            {
+                'manha': isManhaChecked,
+                'tarde': isTardeChecked,
+                'noite': isNoiteChecked
+            }
+        )
+    }
+
+    function loadDadosBasicos(){
+        let idMotorista = localStorage.getItem("id") || "01234567890";
+
+        let motoristas = JSON.parse(localStorage.getItem("listaUser") || []);
+        let motorista = motoristas.filter(item => {
+            if(item.cpfCad == idMotorista){
+                return item;
+            }
+        })[0];
+
+        return motorista;
+    }
+</script>

@@ -14,8 +14,8 @@
         </div>
         <div class="col-2"></div>
         <div class="col-10">
-            <img class="pb-2" src="https://picsum.photos/50" alt="">
-            <img class="pb-2" src="https://picsum.photos/50" alt="">
+            <img class="pb-2" id="selfie-1" src="https://picsum.photos/50" alt="">
+            <img class="pb-2" id="selfie-2" src="https://picsum.photos/50" alt="">
         </div>
         <div class="col-2">
             <p>CRLV</p>
@@ -28,7 +28,7 @@
         </div>
         <div class="col-2"></div>
         <div class="col-10">
-            <img class="pb-2" src="https://picsum.photos/50" alt="">
+            <img class="pb-2" id="crlv" src="https://picsum.photos/50" alt="">
         </div>
         <div class="col-2">
             <p>Fotos da Van</p>
@@ -41,9 +41,9 @@
         </div>
         <div class="col-2"></div>
         <div class="col-10">
-            <img class="pb-2" src="https://picsum.photos/50" alt="">
-            <img class="pb-2" src="https://picsum.photos/50" alt="">
-            <img class="pb-2" src="https://picsum.photos/50" alt="">
+            <img class="pb-2" id="van-1" src="https://picsum.photos/50" alt="">
+            <img class="pb-2" id="van-2" src="https://picsum.photos/50" alt="">
+            <img class="pb-2" id="van-3" src="https://picsum.photos/50" alt="">
         </div>
     </div>
 
@@ -51,3 +51,31 @@
         <button class="btn btn-primary">Salvar</button>
     </div>
 </div>
+
+<script>
+    $(document).ready(() => {
+        let motorista = loadDadosBasicos();
+        
+        $("#selfie-1").attr("src", "https://picsum.photos/seed/selfie/50");
+        $("#selfie-1").attr("src", "https://picsum.photos/seed/selfie1/50");
+
+        $("#crlv-1").attr("src", "https://picsum.photos/seed/picsum5/50");
+
+        $("#van-1").attr("src", "https://picsum.photos/seed/picsum/50");
+        $("#van-2").attr("src", "https://picsum.photos/seed/picsum1/50");
+        $("#van-3").attr("src", "https://picsum.photos/seed/picsum2/50");
+    })
+
+    function loadDadosBasicos(){
+        let idMotorista = localStorage.getItem("id") || "01234567890";
+
+        let motoristas = JSON.parse(localStorage.getItem("listaUser") || []);
+        let motorista = motoristas.filter(item => {
+            if(item.cpfCad == idMotorista){
+                return item;
+            }
+        })[0];
+
+        return motorista;
+    }
+</script>
