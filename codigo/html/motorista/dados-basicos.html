@@ -43,10 +43,11 @@
 <script>
     $(document).ready(() => {
         let motorista = loadDadosBasicos();
-        carregarDadosBasicos(motorista)
         console.log(motorista)
+        carregarDadosBasicos(motorista)
+        
         $('#btn-dados-basicos').click(() => {
-            salvarDadosBasicos()
+            salvarDadosBasicos(motorista)
         })
     })
 
@@ -59,6 +60,7 @@
     }
 
     function salvarDadosBasicos(motorista){
+        console.log(">>>" + motorista)
         try {
             motorista.nomeCad = $("#nome").val()
             motorista.cpfCad = $("#cpf").val()
@@ -72,7 +74,7 @@
             motoristaAtualizado.push(motorista)
             localStorage.removeItem('listaUser')
             localStorage.setItem('listaUser',JSON.stringify(motoristaAtualizado))
-            alert('Disponibilidade salva com sucesso!')
+            alert('Dados basicos salvo com sucesso!')
         } catch (error) {
             alert('Erro ao salvar dados basicos! Erro: ' + error)
         }
@@ -87,7 +89,6 @@
                 return item;
             }
         })[0];
-
         return motorista;
     }
 </script>
