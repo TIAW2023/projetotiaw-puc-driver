@@ -1,79 +1,124 @@
-document.getElementById('bnt-adicionar').addEventListener('click', function () {
+function matriculaOk() {
     var matricula = document.getElementById('imput-login-matricula').value;
-    var imagem = document.getElementById('imput-login-imagem').value;
-    var nome = document.getElementById('imput-login-nome').value;
-    var telefone = document.getElementById('imput-login-telefone').value;
-    var endereco = document.getElementById('imput-login-endereço').value;
 
-    var camposVazios = [];
+    if (localStorage.usuarios) {
+        var logins = JSON.parse(localStorage.getItem('usuarios'));
+        console.log(logins);
 
-    if (matricula === '') {
-        camposVazios.push('Matrícula');
-    }
-    if (nome === '') {
-        camposVazios.push('Nome');
-    }
-    if (telefone === '') {
-        camposVazios.push('Telefone');
-    }
-    if (endereco === '') {
-        camposVazios.push('Endereço');
-    }
+        var matriculaEncontrada = false;
 
-    if (camposVazios.length > 0) {
-        alert('Os seguintes campos estão vazios: ' + camposVazios.join(', '));
+        for (var i = 0; i < logins.length; i++) {
+            if (matricula === logins[i].matricula) {
+                matriculaEncontrada = true;
+                var nome = logins[i].nome;
+                var telefone = logins[i].telefone;
+                var endereço = logins[i].endereço;
+                console.log(nome, telefone, endereço);
 
-        camposVazios.forEach(function (campo) {
-            document.getElementById('imput-login-' + campo.toLowerCase()).style.borderColor = 'red';
-        });
-    } else {
-        var usuarios = [];
-
-        if (localStorage.usuarios) {
-            usuarios = JSON.parse(localStorage.getItem('usuarios'));
+                document.getElementById("imput-login-nome").value = nome;
+                document.getElementById("imput-login-telefone").value = telefone;
+                document.getElementById("imput-login-endereço").value = endereço;
+                break;
+            }
         }
 
-        var matriculaExistente = usuarios.some(function (usuario) {
-            return usuario.matricula === matricula;
-        });
+        if (!matriculaEncontrada) {
+            alert('Matrícula não encontrada!');
+        }
+    } else {
+        alert('Erro!');
+    }
 
-        if (matriculaExistente) {
-            alert('Matrícula já cadastrada!');
-        } else {
-            usuarios.push({
-                matricula: matricula,
-                imagem:imagem,
-                nome: nome,
-                telefone: telefone,
-                endereco: endereco
-            });
+    console.log(matricula);
+}
+function salvar() {
+    var nome = document.getElementById("imput-login-nome").value;
+    var telefone = document.getElementById("imput-login-telefone").value;
+    var endereço = document.getElementById("imput-login-endereço").value;
 
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    var str = "";
 
-            var card = document.createElement('div');
-            card.className = 'col-12 col-md-6';
-            card.innerHTML = `
-                <div class="row aluno">
-                    <div class="col-12 col-md-5 img-aluno">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <img src="${imagem}" alt="Foto do Aluno" class="rounded-circle img-100">
-                        </div>
-                         <p>${nome}</p>
+    var logins = JSON.parse(localStorage.getItem('usuarios'));
+    for (var i = 0; i < logins.length; i++) {
+        if (logins[i].turno === "manha") {
+            str += `<div class="row aluno">
+                <div class="col-12 col-md-5 img-aluno">
+                    <div class="d-flex align-items-center">
+                    <div class="justify-content-center">
+                        <img src="" alt="Foto do Aluno" class="rounded-circle img-100">
+                        <div class="ml-3">
+                        <p>${nome}</p>
                         <p>${telefone}</p>
-                    </div>
-                    <div class="col-12 col-md-7">
-                        <div class="d-flex align-items-center justify-content-center h-100">
-                            <div>
-                                <p>${endereco}</p>
-                            </div>
                         </div>
+                    </div>
                     </div>
                 </div>
-            `;
-
-            var container = document.getElementById('content');
-            container.appendChild(card);
+                <div class="col-12 col-md-5">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                    <div>
+                        <p>${endereço}</p>
+                        <p>Centro</p>
+                    </div>
+                    </div>
+                </div>
+                </div>`
+                    
+            var telaDiv = document.getElementById("tela");
+            telaDiv.insertAdjacentHTML("afterbegin", str);
+        }
+        else if (logins[i].turno === "tarde ") {
+            str += `<div class="row aluno">
+                <div class="col-12 col-md-5 img-aluno">
+                    <div class="d-flex align-items-center">
+                    <div class="justify-content-center">
+                        <img src="" alt="Foto do Aluno" class="rounded-circle img-100">
+                        <div class="ml-3">
+                        <p>${nome}</p>
+                        <p>${telefone}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                    <div>
+                        <p>${endereço}</p>
+                        <p>Centro</p>
+                    </div>
+                    </div>
+                </div>
+                </div>`
+                    
+            var telaDiv = document.getElementById("tela");
+            telaDiv.insertAdjacentHTML("afterbegin", str);
+        }
+        else if (logins[i].turno === "noite") {
+            str += `<div class="row aluno">
+                <div class="col-12 col-md-5 img-aluno">
+                    <div class="d-flex align-items-center">
+                    <div class="justify-content-center">
+                        <img src="" alt="Foto do Aluno" class="rounded-circle img-100">
+                        <div class="ml-3">
+                        <p>${nome}</p>
+                        <p>${telefone}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                    <div>
+                        <p>${endereço}</p>
+                        <p>Centro</p>
+                    </div>
+                    </div>
+                </div>
+                </div>`
+                    
+            var telaDiv = document.getElementById("tela");
+            telaDiv.insertAdjacentHTML("afterbegin", str);
         }
     }
 
-});
+    console.log(nome, telefone, endereço);
+}

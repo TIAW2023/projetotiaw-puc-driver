@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+/* NAVBAR */
 #navbar{
     background-color: black;
     color: white;
@@ -13,11 +14,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.logo{
-    font-size: 2rem;
-    margin-top: 33px;
-    margin-left: 170px;
 }
 #navbar-items{
     display: flex;
@@ -37,6 +33,18 @@
     color:#000000;
 }
 
+/* LOGO */
+.logo{
+    font-size: 2rem;
+    margin-top: 33px;
+    margin-left: 170px;
+}
+#logo-pucdriver{
+    margin: 1px;
+    width: 140px;
+}
+
+/* INICIO */
 #inicio{
     padding:80px;
 }
@@ -44,14 +52,16 @@
     background-color: #DCDCDC;
     height: 70vh;
 }
+/* TITULOS */
 #headline{
     align-items: center;
     font-size: 1.9rem;
 }
+/* TEXTOS */
 #texto{
     font-size: 1.2rem;
 }
-
+/* BOTOES */
 #bnt{
     border: 0px;
     background-color: #000000;
@@ -70,7 +80,6 @@
     font-weight: bolder;
     width: 221px;
 }
-
 #bnt-entrar{
     background-color: #000000;
     color: white;
@@ -80,20 +89,23 @@
     align-items: center;
 }
 
+/* LOGINS */
+#background{
+    background-color: #DCDCDC;
+}
 #login{
     padding: 65px;
     width: 600px;
     text-align: center;
     text-transform: uppercase;
 }
-#text-imput{
-    text-align: left;
-}
-
 #login-card{
     background-image: linear-gradient(120deg, #dcdcdc, #808080);
     color:#000000;
     border-radius: 14px;
+}
+#text-imput{
+    text-align: left;
 }
 #imput-login-1{
     border-radius: 10px;
@@ -107,15 +119,10 @@
     background-color:white;
     color:#000000;
 }
-
-#logo-pucdriver{
-    margin: 1px;
-    width: 140px;
-}
-
+/* FOOTER */
 #desenvolvedores-container{
     background-color: #DCDCDC;
-    height: 19vh;
+    height: 100vh;
 }
 #desenvolvedores{
     background-color: #808080;
@@ -160,7 +167,7 @@
         height: 140vh;
     }
     #desenvolvedores-container{
-        height: 23vh;
+        margin-top: 200PX;
     }
 }
 @media screen and (min-width: 536px) and (max-width: 759px){
@@ -196,6 +203,7 @@
     }
 }
 
+
 @media screen and (min-width: 320px) and (max-width: 999px){
     .logo{
         margin-left: 20px;
@@ -203,6 +211,9 @@
     #navbar-items{
         margin-top: 43px;
         align-items: center;
+    }
+    #desenvolvedores-container{
+        margin-top: 400PX;
     }
 }
 
@@ -212,7 +223,7 @@
         text-align: center;
         margin: 0px;
     }
-        #inicio-home{
+    #inicio-home{
         height: 140vh;
     }
     #navbar-container{
@@ -226,9 +237,6 @@
         padding-right: 20px;
         padding-bottom: 0px;
     }
-    #inicio-home{
-        height: 134vh;
-    }
     #texto{
         font-size: 0.5.rem;
         text-align: left;
@@ -236,5 +244,9 @@
     }
     #headline{
         font-size: 1.3rem;
+    }
+    #desenvolvedores-container{
+        height: 100vh;
+        margin-top: 300PX;
     }
 }
