@@ -37,6 +37,15 @@ h3{
     margin-bottom: 5px;
     font-size: 1.1rem;
 }
+
+#imput-login-imagem{
+    border-radius: 10px;
+    border:none;
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
 #imput-login-endereço{
     border-radius: 10px;
     border:none;
