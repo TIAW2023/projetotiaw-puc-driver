@@ -12,28 +12,28 @@ let validAno = false;
 
 
 placa.addEventListener('keyup', () => {
-    if(placa.value.length <= 7){
+    if(placa.value.length <= 6){
       labelplaca.setAttribute('style', 'color: red');
-      labelplaca.innerHTML = 'placa *Insira no minimo 7 caracteres';
+      labelplaca.innerHTML = 'Placa *Insira no minimo 7 caracteres';
       placa.setAttribute('style', 'border-color: red');
       validPlaca = false;
     } else {
       labelplaca.setAttribute('style', 'color: green');
-      labelplaca.innerHTML = 'placa';
+      labelplaca.innerHTML = 'Placa';
       placa.setAttribute('style', 'border-color: green');
       validPlaca = true;
     }
   })
   
   chassi.addEventListener('keyup', () => {
-      if(chassi.value.length <= 15){
+      if(chassi.value.length <= 16){
         labelchassi.setAttribute('style', 'color: red');
-        labelchassi.innerHTML = 'chassi *Insira no minimo 17 caracteres';
+        labelchassi.innerHTML = 'Chassi *Insira no minimo 17 caracteres';
         chassi.setAttribute('style', 'border-color: red');
         validChassi = false;
       } else {
         labelchassi.setAttribute('style', 'color: green');
-        labelchassi.innerHTML = 'chassi';
+        labelchassi.innerHTML = 'Chassi';
         chassi.setAttribute('style', 'border-color: green');
         validChassi = true;
       }
@@ -45,12 +45,12 @@ placa.addEventListener('keyup', () => {
   
     if (ano.value.length <= 3 || isNaN(enteredYear) || enteredYear > currentYear) {
       labelano.setAttribute('style', 'color: red');
-      labelano.innerHTML = 'ano *Insira um ano válido';
+      labelano.innerHTML = 'Ano *Insira um ano válido';
       ano.setAttribute('style', 'border-color: red');
       validAno = false;
     } else {
       labelano.setAttribute('style', 'color: green');
-      labelano.innerHTML = 'ano';
+      labelano.innerHTML = 'Ano';
       ano.setAttribute('style', 'border-color: green');
       validAno = true;
     }
@@ -59,20 +59,16 @@ placa.addEventListener('keyup', () => {
   function cadastrar2(){
     if(validPlaca && validChassi && validAno){
         let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
-
-        listaUser.push({
-          placaCad: placa.value,
-          chassiCad: chassi.value,
-          anoCad: ano.value
-        });
+        let index1 = listaUser.length-1;
+        
+        listaUser[index1].placaCad = placa.value;
+        listaUser[index1].chassiCad = chassi.value;
+        listaUser[index1].anoCad = ano.value;
   
         localStorage.setItem('listaUser',JSON.stringify(listaUser))
-        alert('cadastro sucesso')
-           /* setTimeout(()=>{ 
-              window.location.href = 'pag3.html'
-            }, 1000) */
-    } else{
-        alert('Nao foi possivel ralizar o cadastro')
-    }
-      
+        window.location.href = 'CadastroMotorista3.html'
+
+    } else {
+      alert('Nao foi possivel ralizar o cadastro')
+      }
     }
