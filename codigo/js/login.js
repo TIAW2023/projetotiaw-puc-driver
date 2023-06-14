@@ -4,10 +4,11 @@ function logar() {
 
     if (localStorage.usuarios) {
         var logins = JSON.parse(localStorage.getItem('usuarios'));
+        var logins2 = JSON.parse(localStorage.getItem('listaUser'));
         console.log(logins);
+        console.log(logins2);
 
         var loginEncontrado = false;
-        var matricula = false;
 
         // Aluno
         for (var i = 0; i < logins.length; i++) {
@@ -21,17 +22,17 @@ function logar() {
             }
         }
         // MOTORISTA
-        for (var i = 0; i < logins.length; i++) {
-            if (login == logins[i].email && senha == logins[i].senha) {
+        for (var i = 0; i < logins2.length; i++) {
+            if (login == logins2[i].emailCad && senha == logins2[i].senhaCad) {
                 loginEncontrado = true;
-                let id = logins[i].cpf;
+                let id = logins2[i].cpf;
 
                 location.href = "/codigo/html/HomeMotorista.html"
-                
+
                 break;
             }
         }
-        
+
         if (loginEncontrado) {
             alert('LOGIN EFETUADO COM SUCESSO');
         } else {
@@ -44,30 +45,35 @@ function logar() {
     console.log(login, senha);
 }
 
-function redefinirsenha(){
-    var login = document.getElementByI('').value;
-    var cpf = document.getElementById('').value;
-    var novaSenha = document.getElementById('').value;
+function redefinirsenha() {
+    var login = document.getElementById('imput-redefinir-email').value;
+    var cpf = document.getElementById('imput-redefinir-cpf').value;
+    var novaSenha = document.getElementById('imput-redefinir-senha').value;
 
-    if(localStorage.usuarios){
+    if (localStorage.usuarios) {
         var logins = JSON.parse(localStorage.getItem('usuarios'));
         console.log(logins);
+        console.log(login, cpf, novaSenha);
 
         var loginEncontrado = false;
 
-        for (var i = 0; i < logins.length; i++){
-            if(login == logins[i].email && cpf == logins[i].cpf){
-                logins[i].senha = novaSenha;
+        for (var i = 0; i < logins.length; i++) {
+            if (login == logins[i].email && cpf == logins[i].cpf) {
+                logins[i].senha = novaSenha; // Atualiza a senha no objeto logins[i]
+
+                localStorage.setItem('usuarios', JSON.stringify(logins)); // Atualiza o valor 'usuarios' no localStorage
+
+                loginEncontrado = true;
                 break;
             }
         }
 
-        if(loginEncontrado){
+        if (loginEncontrado) {
             alert('TROCA DE SENHA EFETUADA COM SUCESSO');
-        }else{
+        } else {
             alert('EMAIL OU CPF INCORRETOS');
         }
-    }else{
-        alert('erro!'); 
+    } else {
+        alert('erro!');
     }
 }

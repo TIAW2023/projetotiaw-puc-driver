@@ -31,3 +31,35 @@ function matriculaOk() {
 
     console.log(matricula);
 }
+// function salvar(){
+//     var nome = document.getElementById("imput-login-nome").value;
+//     var telefone = document.getElementById("imput-login-telefone").value;
+//     var endereço = document.getElementById("imput-login-endereço").value;
+
+//     var str = "";
+
+//     str += `<div class ="row aluno">
+//             <div class="col-12 col-md-5 img-aluno">
+//             <div class="d-flex">
+//                 <div class="align-items-center justify-content-center">
+//                     <img src="" alt="Foto do Aluno" class="rounded-circle img-100">
+//                     <p>${nome}</p>
+//                     <p>${telefone}</p>
+//                     </div>
+//                 </div>
+//             </div>
+//             <div class="col-12 col-md-5">
+//                 <div class="d-flex align-items-center justify-content-center h-100">
+//                     <div>
+//                         <p>${endereço}</p>
+//                         <p>Centro</p>
+//                     </div>
+//                 </div>
+//             </div>
+//             </div>`
+
+//             var telaDiv = document.getElementById("tela");
+//             telaDiv.insertAdjacentHTML("afterbegin", str);
+
+//     console.log(nome, telefone, endereço);
+// }
