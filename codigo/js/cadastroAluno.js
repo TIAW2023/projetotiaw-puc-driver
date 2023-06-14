@@ -42,3 +42,37 @@ formulario.addEventListener('submit', e =>{
         console.log(usuarios[i]);
     }
 })
+
+async function buscarCep(){
+    let cep = document.getElementById('cepAluno').value;
+    if(cep !== ""){
+       let url = await "https://brasilapi.com.br/api/cep/v1/" + cep;
+        console.log(url);
+        let req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.send();
+
+        req.onload = function(){
+            if( req.status === 200){
+                let endereco = JSON.parse(req.response);
+               
+                document.getElementById("enderecoAluno").value = endereco.street;
+                document.getElementById("bairroAluno").value = endereco.neighborhood;
+                document.getElementById("estadoAluno").value = endereco.state;
+            }
+            else if (req.status === 404){
+                alert("CEP NAO ENCONTRADO");
+
+            }
+            else {
+                alert("Erro ao fazer a requisicao");
+            }
+        }
+    }
+}
+
+window.onload = function(){
+    let txtCep = document.getElementById("cepAluno");
+    txtCep.addEventListener("blur", buscarCep);
+}
+
