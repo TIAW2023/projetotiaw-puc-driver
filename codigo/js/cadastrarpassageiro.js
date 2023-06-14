@@ -1,65 +1,79 @@
-function matriculaOk() {
+document.getElementById('bnt-adicionar').addEventListener('click', function () {
     var matricula = document.getElementById('imput-login-matricula').value;
+    var imagem = document.getElementById('imput-login-imagem').value;
+    var nome = document.getElementById('imput-login-nome').value;
+    var telefone = document.getElementById('imput-login-telefone').value;
+    var endereco = document.getElementById('imput-login-endereço').value;
 
-    if (localStorage.usuarios) {
-        var logins = JSON.parse(localStorage.getItem('usuarios'));
-        console.log(logins);
+    var camposVazios = [];
 
-        var matriculaEncontrada = false;
-
-        for (var i = 0; i < logins.length; i++) {
-            if (matricula === logins[i].matricula) {
-                matriculaEncontrada = true;
-                var nome = logins[i].nome;
-                var telefone = logins[i].telefone;
-                var endereço = logins[i].endereço;
-                console.log(nome, telefone, endereço);
-
-                document.getElementById("imput-login-nome").value = nome;
-                document.getElementById("imput-login-telefone").value = telefone;
-                document.getElementById("imput-login-endereço").value = endereço;
-                break;
-            }
-        }
-
-        if (!matriculaEncontrada) {
-            alert('Matrícula não encontrada!');
-        }
-    } else {
-        alert('Erro!');
+    if (matricula === '') {
+        camposVazios.push('Matrícula');
+    }
+    if (nome === '') {
+        camposVazios.push('Nome');
+    }
+    if (telefone === '') {
+        camposVazios.push('Telefone');
+    }
+    if (endereco === '') {
+        camposVazios.push('Endereço');
     }
 
-    console.log(matricula);
-}
-// function salvar(){
-//     var nome = document.getElementById("imput-login-nome").value;
-//     var telefone = document.getElementById("imput-login-telefone").value;
-//     var endereço = document.getElementById("imput-login-endereço").value;
+    if (camposVazios.length > 0) {
+        alert('Os seguintes campos estão vazios: ' + camposVazios.join(', '));
 
-//     var str = "";
+        camposVazios.forEach(function (campo) {
+            document.getElementById('imput-login-' + campo.toLowerCase()).style.borderColor = 'red';
+        });
+    } else {
+        var usuarios = [];
 
-//     str += `<div class ="row aluno">
-//             <div class="col-12 col-md-5 img-aluno">
-//             <div class="d-flex">
-//                 <div class="align-items-center justify-content-center">
-//                     <img src="" alt="Foto do Aluno" class="rounded-circle img-100">
-//                     <p>${nome}</p>
-//                     <p>${telefone}</p>
-//                     </div>
-//                 </div>
-//             </div>
-//             <div class="col-12 col-md-5">
-//                 <div class="d-flex align-items-center justify-content-center h-100">
-//                     <div>
-//                         <p>${endereço}</p>
-//                         <p>Centro</p>
-//                     </div>
-//                 </div>
-//             </div>
-//             </div>`
+        if (localStorage.usuarios) {
+            usuarios = JSON.parse(localStorage.getItem('usuarios'));
+        }
 
-//             var telaDiv = document.getElementById("tela");
-//             telaDiv.insertAdjacentHTML("afterbegin", str);
+        var matriculaExistente = usuarios.some(function (usuario) {
+            return usuario.matricula === matricula;
+        });
 
-//     console.log(nome, telefone, endereço);
-// }
+        if (matriculaExistente) {
+            alert('Matrícula já cadastrada!');
+        } else {
+            usuarios.push({
+                matricula: matricula,
+                imagem:imagem,
+                nome: nome,
+                telefone: telefone,
+                endereco: endereco
+            });
+
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            var card = document.createElement('div');
+            card.className = 'col-12 col-md-6';
+            card.innerHTML = `
+                <div class="row aluno">
+                    <div class="col-12 col-md-5 img-aluno">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="${imagem}" alt="Foto do Aluno" class="rounded-circle img-100">
+                        </div>
+                         <p>${nome}</p>
+                        <p>${telefone}</p>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div>
+                                <p>${endereco}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            var container = document.getElementById('content');
+            container.appendChild(card);
+        }
+    }
+
+});
