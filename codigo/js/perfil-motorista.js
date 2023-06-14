@@ -13,14 +13,6 @@ tabs.forEach(tab => {
     })
 });
 
-/*
-$('.nav-link').get().forEach(tab => {
-    tab.addEventListener('click', (tabClicked) => {
-        console.log($(this).attr("id"));
-    })
-});
-*/
-
 $('a.nav-link').click(function(){
     //add active class to item clicked and remove other ones
     $(this).addClass('active').parent().siblings().children().removeClass('active');

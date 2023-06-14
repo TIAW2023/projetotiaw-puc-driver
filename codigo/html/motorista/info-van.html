@@ -7,19 +7,19 @@
             <p>Placa</p>
         </div>
         <div class="col-9">
-            <input type="text" class="w-100">
+            <input type="text" id="placa" class="w-100">
         </div>
         <div class="col-3">
             <p>Chassi</p>
         </div>
         <div class="col-9">
-            <input type="text" class="w-100">
+            <input type="text" id="chassi" class="w-100">
         </div>
         <div class="col-3">
             <p>Ano/Modelo</p>
         </div>
         <div class="col-9">
-            <input type="text" class="w-100">
+            <input type="text" id="modelo" class="w-100">
         </div>
     </div>
 
@@ -27,3 +27,26 @@
         <button class="btn btn-primary">Salvar</button>
     </div>
 </div>
+
+<script>
+    $(document).ready(() => {
+        let motorista = loadDadosBasicos();
+
+        $('#placa').val(motorista.placaCad)
+        $('#chassi').val(motorista.placaCad)
+        $('#modelo').val(motorista.placaCad)
+    })
+
+    function loadDadosBasicos(){
+        let idMotorista = localStorage.getItem("id") || "01234567890";
+
+        let motoristas = JSON.parse(localStorage.getItem("listaUser") || []);
+        let motorista = motoristas.filter(item => {
+            if(item.cpfCad == idMotorista){
+                return item;
+            }
+        })[0];
+
+        return motorista;
+    }
+</script>
