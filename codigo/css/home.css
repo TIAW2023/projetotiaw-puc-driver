@@ -161,7 +161,11 @@
     #desenvolvedores-container{
         height: 23vh;
     }
+    #login{
+        background-color:#DCDCDC;
+    }
 }
+
 @media screen and (min-width: 536px) and (max-width: 1028px){
     #inicio-home{
         height: 140vh;
@@ -169,7 +173,11 @@
     #desenvolvedores-container{
         margin-top: 200PX;
     }
+    #login{
+        background-color:#DCDCDC;
+    }
 }
+
 @media screen and (min-width: 536px) and (max-width: 759px){
     #inicio{
         padding-left: 20px;
@@ -201,8 +209,13 @@
         align-items: center;
         margin-left: 40px;
     }
+    #login{
+        background-color:#DCDCDC;
+    }
+    #desenvolvedores-container{
+        margin-top: 600PX;
+    }
 }
-
 
 @media screen and (min-width: 320px) and (max-width: 999px){
     .logo{
@@ -214,6 +227,9 @@
     }
     #desenvolvedores-container{
         margin-top: 400PX;
+    }
+    #login{
+        background-color:#DCDCDC;
     }
 }
 
@@ -247,6 +263,9 @@
     }
     #desenvolvedores-container{
         height: 100vh;
-        margin-top: 300PX;
+        margin-top: 300px;
+    }
+    #login{
+        background-color:#DCDCDC;
     }
 }
