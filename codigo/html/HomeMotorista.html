@@ -13,9 +13,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <link rel="stylesheet" href="/codigo/css/cadastrarpassageiros.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <style>
+        p{
+            margin: 0;
+        }
+    </style>
 </head>
 
-<body class="fundoPadrao">
+<body class="fundoPadrao"  onload="changeTab('manha')">
     <div id="nav" style="background-color: black;"></div>
     <div class="container">
         <div class="row">
@@ -25,227 +32,85 @@
                 </div>
             </div>
         </div>
-        <nav>
+        <nav class="d-flex justify-content-between">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home"
+                <button onclick="changeTab('manha')" class="nav-link active" id="nav-manha-tab" data-toggle="tab" data-target="#nav-home"
                     type="button" role="tab" aria-controls="nav-home" aria-selected="true">Manhã</button>
-                <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button"
+                <button onclick="changeTab('tarde')" class="nav-link" id="nav-tarde-tab" data-toggle="tab" data-target="#nav-profile" type="button"
                     role="tab" aria-controls="nav-profile" aria-selected="false">Tarde</button>
-                <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button"
+                <button onclick="changeTab('noite')" class="nav-link" id="nav-noite-tab" data-toggle="tab" data-target="#nav-contact" type="button"
                     role="tab" aria-controls="nav-contact" aria-selected="false">Noite</button>
             </div>
+
+            <!-- MODAL -->
+            <div class="col-12 col-md-6 d-flex">
+                <!-- BOTAO MODAL -->
+                <button type="button" class="btn btn-primary ml-auto" style="max-height: 48px;" data-bs-toggle="modal"
+                    data-bs-target="#registerPassagersModal">
+                    <i class="fa fa-plus"></i>
+                    Novo passageiro
+                </button>
+
+                <!-- CORPO MODAL -->
+                <div class="modal fade" id="registerPassagersModal" tabindex="-1" aria-labelledby="registerPassagersModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form id="modal" class="modal-content form-register-passasger" onsubmit="salvar(event)" method="POST">
+                            <div class="modal-body">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"><i class="bi bi-x-circle"></i></button>
+                                <h3>Cadastrar passageiros</h3>
+                                <div class="card-body pt-5" id="text-modal">
+                                    <div class="col">
+                                        <div class="row">
+                                            <p class="card-text col-6" id="text-imput">Matricula PUC</p>
+                                            <input name="matricula" class="col-6" id="input-login-matricula" type="text"
+                                                placeholder="000000">
+                                            <div class="col-5"></div>
+                                            <button onclick="matriculaOk()" type="button" id="bnt-adicionar"
+                                                class="btn col-2">ok</button>
+                                            <div class="col-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <p class="card-text col-6" id="text-imput">Nome</p>
+                                            <input name="nome" class="col-6" disabled="" id="input-login-nome" type="text"
+                                                placeholder="Aaaaaa Aaaaaa"></input>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <p class="card-text col-6" id="text-imput">Telefone</p>
+                                            <input name="telefone" class="col-6" disabled="" id="input-login-telefone" type="tel"
+                                                placeholder="(00)00000-0000"></input>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <p class="card-text col-6" id="text-imput">Endereço</p>
+                                            <input name="endereco" class="col-6" disabled="" id="input-login-endereco" type="tel"
+                                                placeholder="R. Aaaa Aaaa"></input>
+                                        </div>
+                                    </div>
+                                    <input id="input-login-turno" hidden />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="bnt-adicionar" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" id="bnt-adicionar" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- FIM DO MODAL -->
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <!-- DIA -->
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="row">
-                    <!-- CARD -->
-                    <div class="col-12 col-md-5" id="tela"></div>
-                    <!-- MODAL -->
-                    <div class="col-12 col-md-6">
-                        <!-- BOTAO MODAL -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <i class="fa fa-plus"></i>
-                        </button>
-
-                        <!-- CORPO MODAL -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div id="modal" class="modal-content">
-                                    <div class="modal-body">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"><i class="bi bi-x-circle"></i></button>
-                                        <h3>Cadastrar passageiros</h3>
-                                        <div class="card-body pt-5" id="text-modal">
-                                            <div class="col">
-                                                <div class="row">
-                                                    <p class="card-text col-6" id="text-imput">Matricula PUC</p>
-                                                    <input class="col-6" id="imput-login-matricula" type="text"
-                                                        placeholder="000000"></input>
-                                                    <div class="col-5"></div>
-                                                    <button onclick="matriculaOk()" type="button" id="bnt-adicionar"
-                                                        class="btn col-2">ok</button>
-                                                    <div class="col-5"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="row">
-                                                    <p class="card-text col-6" id="text-imput">Nome</p>
-                                                    <input class="col-6" disabled="" id="imput-login-nome" type="text"
-                                                        placeholder="Aaaaaa Aaaaaa"></input>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="row">
-                                                    <p class="card-text col-6" id="text-imput">Telefone</p>
-                                                    <input class="col-6" disabled="" id="imput-login-telefone" type="tel"
-                                                        placeholder="(00)00000-0000"></input>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="row">
-                                                    <p class="card-text col-6" id="text-imput">Endereço</p>
-                                                    <input class="col-6" disabled="" id="imput-login-endereço" type="tel"
-                                                        placeholder="R. Aaaa Aaaa"></input>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" id="bnt-adicionar" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" id="bnt-adicionar" onclick="salvar()" class="btn btn-primary">Salvar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- FIM DO MODAL -->
-                </div>
-            </div>
-            <!-- TARDE -->
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div class="row">
-                        <!-- CARD -->
-                        <div class="col-12 col-md-6" id="tela"></div>
-                        <!-- MODAL -->
-                        <div class="col-12 col-md-6">
-                            <!-- BOTAO MODAL -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal-tarde">
-                                <i class="fa fa-plus"></i>
-                            </button>
-
-                            <!-- CORPO DO MODAL -->
-                            <div class="modal fade" id="exampleModal-tarde" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div id="modal" class="modal-content">
-                                        <div class="modal-body">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"><i class="bi bi-x-circle"></i></button>
-                                            <h3>Cadastrar passageiros</h3>
-                                            <div class="card-body pt-5" id="text-modal">
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" id="text-imput">Matricula PUC</p>
-                                                        <input class="col-6" id="imput-login-matricula" type="text"
-                                                            placeholder="000000"></input>
-                                                        <div class="col-5"></div>
-                                                        <button onclick="matriculaOk()" type="button" id="bnt-adicionar"
-                                                            class="btn col-2">ok</button>
-                                                        <div class="col-5"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" disabled="" id="text-imput">Nome</p>
-                                                        <input class="col-6" id="imput-login-nome" type="text"
-                                                            placeholder="Aaaaaa Aaaaaa"></input>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" disabled="" id="text-imput">Telefone</p>
-                                                        <input class="col-6" id="imput-login-telefone" type="tel"
-                                                            placeholder="(00)00000-0000"></input>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" disabled="" id="text-imput">Endereço</p>
-                                                        <input class="col-6" id="imput-login-endereço" type="tel"
-                                                            placeholder="R. Aaaa Aaaa"></input>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" id="bnt-adicionar" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="button" id="bnt-adicionar"
-                                                class="btn btn-primary" onclick="salvar()">Salvar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIM DO MODAL -->
-                    </div>
-                </div>
-            </div>
-            <!-- NOITE -->
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div class="row">
-                        <!-- CARD -->
-                        <div class="col-12 col-md-6" id="tela"></div>
-                        <!-- MODAL -->
-                        <div class="col-12 col-md-6">
-                            <!-- BOTAO MODAL -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal-noite">
-                                <i class="fa fa-plus"></i>
-                            </button>
-
-                            <!-- CORPO DO MODAL -->
-                            <div class="modal fade" id="exampleModal-noite" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div id="modal" class="modal-content">
-                                        <div class="modal-body">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"><i class="bi bi-x-circle"></i></button>
-                                            <h3>Cadastrar passageiros</h3>
-                                            <div class="card-body pt-5" id="text-modal">
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" id="text-imput">Matricula PUC</p>
-                                                        <input class="col-6" id="imput-login-matricula" type="text"
-                                                            placeholder="000000"></input>
-                                                        <div class="col-5"></div>
-                                                        <button onclick="matriculaOk()" type="button" id="bnt-adicionar"
-                                                            class="btn col-2">ok</button>
-                                                        <div class="col-5"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" disabled="" id="text-imput">Nome</p>
-                                                        <input class="col-6" id="imput-login-nome" type="text"
-                                                            placeholder="Aaaaaa Aaaaaa"></input>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" disabled="" id="text-imput">Telefone</p>
-                                                        <input class="col-6" id="imput-login-telefone" type="tel"
-                                                            placeholder="(00)00000-0000"></input>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <p class="card-text col-6" disabled="" id="text-imput">Endereço</p>
-                                                        <input class="col-6" id="imput-login-endereço" type="tel"
-                                                            placeholder="R. Aaaa Aaaa"></input>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" id="bnt-adicionar" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="button" id="bnt-adicionar"
-                                                class="btn btn-primary" onclick="salvar()">Salvar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIM DO MODAL -->
-                    </div>
+            <!-- DIA --> 
+            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
+                <!-- CARD -->
+                <div class="mt-4 d-flex flex-wrap" style="gap: 32px;" id="nav-home">
                 </div>
             </div>
         </div>
