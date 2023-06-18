@@ -15,12 +15,13 @@
     font-weight: bold;
 }
 
-.card-img-top {
+.card-img-top, .img-card {
     width: 100%;
-    height: 300px;
+    height: auto;
     object-fit: cover;
     /* para redimensionar a imagem sem distorção */
 }
+
 
 #search-input {
     border-radius: 20px;
@@ -61,7 +62,7 @@ form {
 }
 
 .estrelas label i.fa {
-    font-size: 2.5em
+    font-size: 2em
 }
 
 .estrelas label i.fa:before {
@@ -71,6 +72,20 @@ form {
 
 .estrelas input[type=radio]:checked~label i.fa:before {
     color: #CCC;
+}
+
+.perfil{
+    border-right: 1px solid #0002;
+}
+
+.perfil-info {
+    width: 100%;
+    gap: 8px;
+}
+
+.perfil-info strong{
+    width: 100%;
+    white-space: nowrap;
 }
 
 .destaque {
@@ -94,21 +109,38 @@ form {
     margin-right: 10px;
 }
 
+.bairros{
+    gap: 8px;
+}
+
 .bairros-ate {
     background-color: black;
     color: white;
-    padding: 5px;
-    border-radius: 50px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    padding: 4px 16px 6px;
+    height: 32px;
 }
 
-.van-moto {
-    margin-top: 3em;
+.van-moto{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    align-items: flex-start;
+    width: 100%;
+}
+
+.van-moto strong {
+    font-size: 18px;
 }
 
 .img-moto {
-    max-height: 200px;
-    /* altura máxima */
     width: 100%;
+    height: auto;
     /* largura 100% */
     object-fit: cover;
     /* ajustar a imagem para cobrir todo o espaço disponível */
@@ -127,7 +159,6 @@ form {
     }
 
     .bairros span{
-        margin: 5px;
         text-align: center;
     }
 }

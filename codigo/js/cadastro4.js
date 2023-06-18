@@ -4,11 +4,11 @@ let validCrlv = false;
 
 let van = document.querySelector('#van');
 let labelvan = document.querySelector('#labelvan');
-let validVan = false;
+let validVan = true;
 
 let selfie = document.querySelector('#selfie');
 let labelselfie = document.querySelector('#labelselfie');
-let validSelfie = false;
+let validSelfie = true;
 
 crlv.addEventListener('change', () => {
   const file = crlv.files[0];
@@ -29,43 +29,43 @@ crlv.addEventListener('change', () => {
   }
 });
 
-van.addEventListener('change', () => {
-  const file = van.files[0];
-  if (file) {
-    const fileName = file.name;
-    const fileExtension = fileName.split('.').pop().toLowerCase();
-    if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png') {
-      labelvan.setAttribute('style', 'color: green');
-      labelvan.innerHTML = 'Van';
-      van.setAttribute('style', 'border-color: green');
-      validVan = true;
-    } else {
-      labelvan.setAttribute('style', 'color: red');
-      labelvan.innerHTML = 'Van *Insira uma foto com extensão válida (jpg, jpeg, png)';
-      van.setAttribute('style', 'border-color: red');
-      validVan = false;
-    }
-  }
-});
+// van.addEventListener('change', () => {
+//   const file = van.files[0];
+//   if (file) {
+//     const fileName = file.name;
+//     const fileExtension = fileName.split('.').pop().toLowerCase();
+//     if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png') {
+//       labelvan.setAttribute('style', 'color: green');
+//       labelvan.innerHTML = 'Van';
+//       van.setAttribute('style', 'border-color: green');
+//       validVan = true;
+//     } else {
+//       labelvan.setAttribute('style', 'color: red');
+//       labelvan.innerHTML = 'Van *Insira uma foto com extensão válida (jpg, jpeg, png)';
+//       van.setAttribute('style', 'border-color: red');
+//       validVan = false;
+//     }
+//   }
+// });
 
-selfie.addEventListener('change', () => {
-  const file = selfie.files[0];
-  if (file) {
-    const fileName = file.name;
-    const fileExtension = fileName.split('.').pop().toLowerCase();
-    if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png') {
-      labelselfie.setAttribute('style', 'color: green');
-      labelselfie.innerHTML = 'Selfie';
-      selfie.setAttribute('style', 'border-color: green');
-      validSelfie = true;
-    } else {
-      labelselfie.setAttribute('style', 'color: red');
-      labelselfie.innerHTML = 'Selfie *Insira uma foto com extensão válida (jpg, jpeg, png)';
-      selfie.setAttribute('style', 'border-color: red');
-      validSelfie = false;
-    }
-  }
-});
+// selfie.addEventListener('change', () => {
+//   const file = selfie.files[0];
+//   if (file) {
+//     const fileName = file.name;
+//     const fileExtension = fileName.split('.').pop().toLowerCase();
+//     if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png') {
+//       labelselfie.setAttribute('style', 'color: green');
+//       labelselfie.innerHTML = 'Selfie';
+//       selfie.setAttribute('style', 'border-color: green');
+//       validSelfie = true;
+//     } else {
+//       labelselfie.setAttribute('style', 'color: red');
+//       labelselfie.innerHTML = 'Selfie *Insira uma foto com extensão válida (jpg, jpeg, png)';
+//       selfie.setAttribute('style', 'border-color: red');
+//       validSelfie = false;
+//     }
+//   }
+// });
 
   function cadastrar4(){
     if(validCrlv && validVan && validSelfie){

@@ -1,19 +1,26 @@
- let pessoas;
-if (localStorage.hasOwnProperty("usuarios")) {
-    pessoas = JSON.parse(localStorage.getItem("usuarios"));
-    pessoas = pessoas[0];//deixei settado um usuarios para preencher os dados para fins de avaliação; mas depois será verificado conforme login da pessoa;
-    console.log(pessoas)
-  }
+let pessoas;
+const userAuthenticated = localStorage.getItem('user-authenticated-id');
+let userLogged = null
 
-document.getElementById('nomeAluno').innerHTML = pessoas.nome;
-document.getElementById('matriculaAluno').value = pessoas.matricula;
-document.getElementById('enderecoAluno').value = pessoas.endereço;
-document.getElementById('bairroAluno').value = pessoas.bairro;
-document.getElementById('cepAluno').value = pessoas.cep;
-document.getElementById('cpfAluno').value = pessoas.cpf;
-document.getElementById('telefoneAluno').value = pessoas.telefone;
-document.getElementById('emailAluno').value = pessoas.email;
-document.getElementById('numeroAluno').value = pessoas.numero;
-document.getElementById('turnoAluno').value = pessoas.turno;
+if (localStorage.hasOwnProperty("usuarios") && userAuthenticated) {
+    pessoas = JSON.parse(localStorage.getItem("usuarios"));
+    //deixei settado um usuarios para preencher os dados para fins de avaliação; mas depois será verificado conforme login da pessoa;
+    userLogged = pessoas.find(pessoa => pessoa.cpf === userAuthenticated);
+    console.log(pessoas)
+    console.log(userLogged)
+}
+
+if(userLogged){
+  document.getElementById('nomeAluno').innerText = userLogged.nome;
+  document.getElementById('matriculaAluno').value = userLogged.matricula;
+  document.getElementById('enderecoAluno').value = userLogged.endereço;
+  document.getElementById('bairroAluno').value = userLogged.bairro;
+  document.getElementById('cepAluno').value = userLogged.cep;
+  document.getElementById('cpfAluno').value = userLogged.cpf;
+  document.getElementById('telefoneAluno').value = userLogged.telefone;
+  document.getElementById('emailAluno').value = userLogged.email;
+  document.getElementById('numeroAluno').value = userLogged.numero;
+  document.getElementById('turnoAluno').value = userLogged.turno; 
+}
 
 

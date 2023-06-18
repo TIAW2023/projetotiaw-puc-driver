@@ -1,6 +1,6 @@
-$('#card1').click(function() {
+$('#card0').click(function() {
     // Exiba o modal
-    $('#myModal1').modal('show');
+    $('#myModal0').modal('show');
 });  
   
 $('#card2').click(function() {

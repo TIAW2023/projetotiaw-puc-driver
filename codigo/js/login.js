@@ -16,6 +16,7 @@ function logar() {
                 loginEncontrado = true;
                 let id = logins[i].cpf;
 
+                localStorage.setItem('user-authenticated-id', id);
                 location.href = "/codigo/html/HomeAluno.html"
 
                 break;
@@ -27,6 +28,7 @@ function logar() {
                 loginEncontrado = true;
                 let id = logins2[i].cpf;
 
+                localStorage.setItem('user-authenticated-id', id);
                 location.href = "/codigo/html/HomeMotorista.html"
 
                 break;
