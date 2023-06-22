@@ -16,14 +16,31 @@ formulario.addEventListener('submit', e =>{
     var endereço = document.getElementById('enderecoAluno').value;
     var bairro = document.getElementById('bairroAluno').value;
     var numero = document.getElementById('numeroAluno').value;
-    var turno = document.getElementById('turnoAluno').value;  
+    var turno = document.querySelectorAll('input[type="checkbox"]');
+    var turnos = []
+    console.log(turno);
+    for (let i = 0; i < 3; i++) {
+        if (turno[i].checked) {
+          console.log("ajkjjk"+turno[i].id);
+          turnos.push(turno[i].id)
+        }
+      }
     
-    var usuarios = new Array();
+    let nomeV = true
+    let matriculaV = true
+    let cpfV = true
+    let telefoneV = true
+    let senhaV = true
+  
+    var alunos = new Array();
 
-    if(localStorage.hasOwnProperty("usuarios")){
-        usuarios = JSON.parse(localStorage.getItem("usuarios") || '[]');
+    if(localStorage.hasOwnProperty("alunos")){
+        alunos = JSON.parse(localStorage.getItem("alunos") || '[]');
     }
-    usuarios.push({
+
+    
+
+    alunos.push({
         nome:nome,
         matricula:matricula,
         cpf:cpf,
@@ -34,13 +51,38 @@ formulario.addEventListener('submit', e =>{
         endereço:endereço,
         bairro: bairro,
         numero:numero,
-        turno:turno
+        turno:turnos
     });
-    localStorage.setItem("usuarios",JSON.stringify(usuarios));
-    console.log(usuarios)
-    for(i=0;i<usuarios.length;i++){
-        console.log(usuarios[i]);
+    if(nome.length<3){
+        alert("nome Invalido");
+        nomeV = false;
     }
+     if(matricula.length<6){
+        alert("matricula Invalida");
+        matriculaV = false
+    }
+     if(cpf.length == 11){
+        alert("CPF Invalido")
+        cpfV = false
+    }
+     if(telefone.length<10){
+        alert("Telefone Invalido")
+        telefoneV = false
+    }
+     if(senha.length<8){
+        alert("Informe Uma senha que tenha pelo menos 8 Digitos")
+        senhaV = false
+    }
+    
+    
+      if((nomeV && matriculaV && cpfV && telefoneV && senhaV  == true)){
+        localStorage.setItem("alunos",JSON.stringify(alunos));
+        console.log(alunos)
+        for(i=0;i<alunos.length;i++){
+            console.log(alunos[i]);
+            }
+        }
+
 })
 
 async function buscarCep(){

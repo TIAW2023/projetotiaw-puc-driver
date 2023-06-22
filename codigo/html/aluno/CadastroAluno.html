@@ -42,18 +42,18 @@
                         </div>
                          <div class="form-group">
                             <label for="cpf">CPF:</label>
-                            <input type="text" class="form-control" id="cpfAluno" name="cpfAluno" required>
+                            <input type="number" class="form-control" id="cpfAluno" name="cpfAluno" required>
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input type="tel" class="form-control" id="telefoneAluno" name="telefoneAluno" required>
+                            <input type="number" class="form-control" id="telefoneAluno" name="telefoneAluno" required>
                         </div>
                     </div>
                     
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nome">Matricula:</label>
-                            <input type="tel" class="form-control" id="matriculaAluno" name="matriculaAluno" required>
+                            <input type="number" class="form-control" id="matriculaAluno" name="matriculaAluno" required>
                         </div> 
                         <div class="form-group">
                             <label for="email">E-mail:</label>
@@ -71,29 +71,34 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="cep">Cep:</label>
-                        <input type="text" class="form-control" id="cepAluno" name="cepAluno" required>
+                        <input type="number" class="form-control" id="cepAluno" name="cepAluno" required>
                     </div>
                     <div class="form-group">
                         <label for="endereco">Endereço:</label>
-                        <input type="text" class="form-control" id="enderecoAluno" name="enderecoAluno" required>
+                        <input type="text" class="form-control" id="enderecoAluno" name="enderecoAluno" required disabled>
                     </div>
                     <div class="form-group">
-                        <label for="turnp">Turno:</label>
-                        <input type="text"   class="form-control" id="turnoAluno" name="turnoAluno" required>
+                        <label for="turno">Turno:</label><br>
+                        <input type="checkbox" id="manha" name="turnoAluno"> 
+                        <label for="manha">Manha</label><br>
+                        <input type="checkbox" id="tarde" name="vehicle1" value="Bike">
+                        <label for="tarde" id="">Tarde</label><br>
+                        <input type="checkbox" id="noite" name="vehicle1" value="Bike">
+                        <label for="noite">Noite</label><br>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="bairro">Bairro</label>
-                        <input type="text" class="form-control" id="bairroAluno" name="bairroAluno" required>
+                        <input type="text" class="form-control" id="bairroAluno" name="bairroAluno" required disabled>
                     </div>
                     <div class="form-group">
                         <label for="numero">Nº</label>
-                        <input type="text" class="form-control" id="numeroAluno" name="numeroAluno" required>
+                        <input type="number" class="form-control" id="numeroAluno" name="numeroAluno" required>
                     </div>
                     <div class="form-group">
                         <label for="estado">Estado</label>
-                        <input type="text" class="form-control" id="estadoAluno" name="estadoAluno" required>
+                        <input type="text" class="form-control" id="estadoAluno" name="estadoAluno" required disabled>
                     </div>
                 </div>
             </div> 
