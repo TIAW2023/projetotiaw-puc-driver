@@ -54,14 +54,16 @@ function redefinirsenha() {
 
     if (localStorage.usuarios) {
         var logins = JSON.parse(localStorage.getItem('usuarios'));
-        console.log(logins);
-        console.log(login, cpf, novaSenha);
 
         var loginEncontrado = false;
 
         for (var i = 0; i < logins.length; i++) {
             if (login == logins[i].email && cpf == logins[i].cpf) {
+                if(novaSenha.length > 7){
                 logins[i].senha = novaSenha; // Atualiza a senha no objeto logins[i]
+                }else{
+                    alert("Senha com menos de 8 digitos");
+                }
 
                 localStorage.setItem('usuarios', JSON.stringify(logins)); // Atualiza o valor 'usuarios' no localStorage
 
