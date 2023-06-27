@@ -67,22 +67,22 @@ crlv.addEventListener('change', () => {
 //   }
 // });
 
-  function cadastrar4(){
-    if(validCrlv && validVan && validSelfie){
-        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
-        let index3 = listaUser.length-1;
-        
-        listaUser[index3].crlvCad = crlv.value;
-        listaUser[index3].vanCad = van.value;
-        listaUser[index3].selfieCad = selfie.value;
-        
-  
-        localStorage.setItem('listaUser',JSON.stringify(listaUser))
-        setTimeout(()=>{ 
-            alert('Cadastro realizado com Sucesso!')
-         /* window.location.href = 'CadastroMotorista4.html' */
-        }, 1000)
-    } else {
-      alert('Nao foi possivel ralizar o cadastro')
-      }
-    }
+function cadastrar4() {
+  if (validCrlv && validVan && validSelfie) {
+    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+    let index3 = listaUser.length - 1;
+
+    listaUser[index3].crlvCad = crlv.value;
+    listaUser[index3].vanCad = van.value;
+    listaUser[index3].selfieCad = selfie.value;
+
+
+    localStorage.setItem('listaUser', JSON.stringify(listaUser))
+    setTimeout(() => {
+      alert('Cadastro realizado com Sucesso!')
+      /* window.location.href = 'CadastroMotorista4.html' */
+    }, 1000)
+  } else {
+    alert('Nao foi possivel ralizar o cadastro')
+  }
+}

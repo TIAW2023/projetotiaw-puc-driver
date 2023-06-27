@@ -1,8 +1,8 @@
 function matriculaOk() {
     var matricula = document.getElementById('input-login-matricula').value;
 
-    if (localStorage.usuarios) {
-        var logins = JSON.parse(localStorage.getItem('usuarios'));
+    if (localStorage.alunos) {
+        var logins = JSON.parse(localStorage.getItem('alunos'));
         const passageiros = JSON.parse(localStorage.getItem('passageiros'));
         console.log(logins);
 
@@ -11,7 +11,7 @@ function matriculaOk() {
 
         for (var i = 0; i < logins.length; i++) {
             if (matricula === logins[i].matricula) {
-                if(passageiros?.find(passageiro => passageiro.matricula === matricula)){
+                if (passageiros?.find(passageiro => passageiro.matricula === matricula)) {
                     alert('Passageiro já cadastrado!')
                     clearForm()
                     return
@@ -29,7 +29,7 @@ function matriculaOk() {
                 document.getElementById("input-login-turno").value = turno;
                 break;
             }
-        }1
+        }
 
         if (!matriculaEncontrada) {
             alert('Matrícula não encontrada!');
@@ -48,6 +48,7 @@ function salvar(event) {
     const endereco = event.target.querySelector("#input-login-endereco").value;
     const matricula = event.target.querySelector("#input-login-matricula").value;
     const turno = event.target.querySelector("#input-login-turno").value;
+    const motorista = localStorage.getItem('user-authenticated-id');
 
     const passageiro = {
         nome,
@@ -55,7 +56,10 @@ function salvar(event) {
         endereco,
         matricula,
         turno,
+        motorista,
     }
+
+    console.log(motorista);
 
     const passageiros = JSON.parse(localStorage.getItem("passageiros")) ?? []
     passageiros?.push(passageiro)
@@ -69,9 +73,10 @@ function salvar(event) {
     clearForm()
 }
 
-function changeTab(tab){
+function changeTab(tab) {
     const tela = document.querySelector(`#nav-home`)
     const passageiros = JSON.parse(localStorage.getItem("passageiros")) ?? []
+    const motoristaID = localStorage.getItem("user-authenticated-id");
 
     tela.innerHTML = ""
 
@@ -79,35 +84,39 @@ function changeTab(tab){
     document.getElementById(`nav-${tab}-tab`).classList.add('active')
 
     for (var i = 0; i < passageiros.length; i++) {
-        if(passageiros[i].turno === tab){
-            const str = `
-            <div class="bg-white col-12 col-md-4 col-sm-8  py-4  d-flex flex-column rounded">
-                <div class="d-flex align-items-center" style="gap: 24px">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="" width="80" height="80">
-                    <div class="d-flex flex-column" style="gap: 8px;">
-                        <div>
-                            <span style="color: #000; font-weight: 600;">Nome: </span>
-                            <p>${passageiros[i].nome}</p>
-                        </div>
-                        <div>
-                            <span style="color: #000; font-weight: 600;">Telefone: </span>
-                            <p>${passageiros[i].telefone}</p>
+
+        if (motoristaID === passageiros[i].motorista){
+            
+            if (passageiros[i].turno === tab) {
+                const str = `
+                <div class="bg-white col-12 col-md-4 col-sm-8  py-4  d-flex flex-column rounded">
+                    <div class="d-flex align-items-center" style="gap: 24px">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="" width="80" height="80">
+                        <div class="d-flex flex-column" style="gap: 8px;">
+                            <div>
+                                <span style="color: #000; font-weight: 600;">Nome: </span>
+                                <p>${passageiros[i].nome}</p>
+                            </div>
+                            <div>
+                                <span style="color: #000; font-weight: 600;">Telefone: </span>
+                                <p>${passageiros[i].telefone}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="mt-2">
-                    <span style="color: #000; font-weight: 600;">Endereço: </span>
-                    <p>${passageiros[i].endereco}</p>
-                </div>
-            </div>`
-                
-            tela.insertAdjacentHTML("afterbegin", str);
+                    <div class="mt-2">
+                        <span style="color: #000; font-weight: 600;">Endereço: </span>
+                        <p>${passageiros[i].endereco}</p>
+                    </div>
+                </div>`
+
+                tela.insertAdjacentHTML("afterbegin", str);
+            }
         }
     }
-    
+
 }
 
-function clearForm(){
+function clearForm() {
     document.getElementById("input-login-matricula").value = "";
     document.getElementById("input-login-nome").value = "";
     document.getElementById("input-login-telefone").value = "";

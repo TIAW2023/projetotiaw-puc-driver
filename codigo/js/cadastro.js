@@ -86,7 +86,7 @@ email.addEventListener('keyup', () => {
 });
 
 senha.addEventListener('keyup', () => {
-  if(senha.value.length <= 7){
+  if (senha.value.length <= 7) {
     labelsenha.setAttribute('style', 'color: red');
     labelsenha.innerHTML = 'Senha *Insira no minimo 8 caracteres';
     senha.setAttribute('style', 'border-color: red');
@@ -103,32 +103,32 @@ senha.addEventListener('keyup', () => {
 
 /* INICIO CADASTRO PAGINA 1 */
 
-function cadastrar(){
-    if(validNome && validCpf && validTelefone && validEmail && validSenha){
-      let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+function cadastrar() {
+  if (validNome && validCpf && validTelefone && validEmail && validSenha) {
+    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
 
-      listaUser.push({
-        nomeCad: nome.value,
-        cpfCad: cpf.value,
-        telefoneCad: telefone.value,
-        emailCad: email.value,
-        senhaCad: senha.value,
-        placaCad: null,
-        chassiCad: null,
-        anoCad: null,
-        turnoCad: null,
-        bairroCad: null,
-        crlvCad: null,
-        vanCad: null,
-        selfieCad: null
-      });
+    listaUser.push({
+      nomeCad: nome.value,
+      cpfCad: cpf.value,
+      telefoneCad: telefone.value,
+      emailCad: email.value,
+      senhaCad: senha.value,
+      placaCad: null,
+      chassiCad: null,
+      anoCad: null,
+      turnoCad: null,
+      bairroCad: null,
+      crlvCad: null,
+      vanCad: null,
+      selfieCad: null
+    });
 
-      localStorage.setItem('listaUser',JSON.stringify(listaUser))
-      window.location.href = 'CadastroMotorista2.html'
+    localStorage.setItem('listaUser', JSON.stringify(listaUser))
+    window.location.href = 'CadastroMotorista2.html'
 
-    } else {
-      alert('Nao foi possivel ralizar o cadastro')
-      }
-    } 
+  } else {
+    alert('Nao foi possivel ralizar o cadastro')
+  }
+}
 
 /* FIM CADASTRO PAGINA 1 */

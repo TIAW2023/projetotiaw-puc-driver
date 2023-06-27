@@ -18,13 +18,8 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-7 col-lg-8">
+                    <div>
                         <h1 class="logo">PUC DRIVER</h1>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-4">
-                        <center><button type="text" id="navbar-items">ENTRAR</button>
-                            <button type="text" id="navbar-items">CADASTRE-SE</button>
-                        </center>
                     </div>
                 </div>
             </div>
@@ -52,13 +47,17 @@
                         <div class="col-md-12 col-sm-12 d-flex justify-content-around ">
                             <div class="col">
                                 <div class="row">
-                                    <a href="aluno/CadastroAluno.html" class="col-12 col-md-12 col-lg-6 text-decoration-none">
-                                        <button type="button" id="bnt"><i class="bi bi-box-arrow-in-right"></i>ALUNO! FAÇA SEU
+                                    <a href="aluno/CadastroAluno.html"
+                                        class="col-12 col-md-12 col-lg-6 text-decoration-none">
+                                        <button type="button" id="bnt"><i class="bi bi-box-arrow-in-right"></i>ALUNO!
+                                            FAÇA SEU
                                             CADASTRO
                                             AQUI</button>
                                     </a>
-                                    <a href="CadastroMotorista1.html" class="col-12 col-md-12 col-lg-6 text-decoration-none">
-                                        <button type="button" id="bnt"><i class="bi bi-box-arrow-in-right"></i>MOTORISTA! FAÇA
+                                    <a href="CadastroMotorista1.html"
+                                        class="col-12 col-md-12 col-lg-6 text-decoration-none">
+                                        <button type="button" id="bnt"><i
+                                                class="bi bi-box-arrow-in-right"></i>MOTORISTA! FAÇA
                                             SEU CADASTRO
                                             AQUI</button>
                                     </a>
@@ -74,13 +73,14 @@
                                     <div class="card-body pt-5">
                                         <h5 class="card-title">Login</h5><br>
                                         <p class="card-text d-grid col-12 mx-aut" id="text-imput">E-mail:<input
-                                                id="imput-login-2" type="email" placeholder="example@gmail.com"></input>
+                                                id="imput-login-2" type="email" placeholder="exemplo@gmail.com"></input>
                                         </p>
                                         <p class="card-text d-grid col-12 mx-auto" id="text-imput">Senha<small
                                                 class="text-body-secondary"><input id="imput-login-1" type="password"
-                                                    class="col-12"></small></p>
+                                                    placeholder="minimo 6 digitos" class="col-12"></small></p>
                                         <div class="mb-2 d-flex ">
-                                            <a class="" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" id="esqueci-senha">Esqueci Minha
+                                            <a class="" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                id="esqueci-senha">Esqueci Minha
                                                 Senha</a>
                                             <!-- MODAL -->
                                             <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -88,29 +88,33 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Redefina sua senha</h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Redefina
+                                                                sua senha</h1>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="col">
                                                                 <div class="row">
-                                                                    <p class="card-text col-4" id="text-imput">E-mail:</p>
-                                                                    <input class="col-4" id="imput-redefinir-email" type="email"
-                                                                        placeholder="Digite aqui:"></input>
+                                                                    <p class="card-text col-4" id="text-imput">E-mail:
+                                                                    </p>
+                                                                    <input class="col-4" id="imput-redefinir-email"
+                                                                        type="email" placeholder="Digite aqui:"></input>
                                                                 </div>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="row">
                                                                     <p class="card-text col-4" id="text-imput">CPF:</p>
-                                                                    <input class="col-4" id="imput-redefinir-cpf" type="text"
-                                                                        placeholder="Digite aqui:"></input>
+                                                                    <input class="col-4" id="imput-redefinir-cpf"
+                                                                        type="text" placeholder="Digite aqui:"></input>
                                                                 </div>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="row">
-                                                                    <p class="card-text col-4" id="text-imput">Nova senha:</p>
-                                                                    <input class="col-4" id="imput-redefinir-senha" type="password"
+                                                                    <p class="card-text col-4" id="text-imput">Nova
+                                                                        senha:</p>
+                                                                    <input class="col-4" id="imput-redefinir-senha"
+                                                                        type="password"
                                                                         placeholder="Digite aqui:"></input>
                                                                 </div>
                                                             </div>
@@ -118,13 +122,15 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn"
                                                                 data-bs-dismiss="modal">Fechar</button>
-                                                            <button type="button" class="btn" onclick="redefinirsenha()">Salvar nova senha</button>
+                                                            <button type="button" class="btn"
+                                                                onclick="redefinirsenha()">Salvar nova senha</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- FIM DO MODAL -->
                                         </div>
+                                        <!-- LOGIN-ENTRAR -->
                                         <div class="col">
                                             <div class="row">
                                                 <div class="col-12">
