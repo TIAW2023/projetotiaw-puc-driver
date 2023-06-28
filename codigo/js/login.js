@@ -3,8 +3,8 @@ function logar() {
     var senha = document.getElementById('imput-login-1').value;
 
     //if (localStorage.usuarios || localStorage.listaUser) {
-        var logins = JSON.parse(localStorage.getItem('alunos')) || [];
-        var logins2 = JSON.parse(localStorage.getItem('listaUser')) || [];
+        var logins = JSON.parse(localStorage.getItem('alunos'));
+        var logins2 = JSON.parse(localStorage.getItem('listaUser'));
         console.log(logins);
         console.log(logins2);
 
