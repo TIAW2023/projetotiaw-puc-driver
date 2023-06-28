@@ -24,13 +24,10 @@ function logar() {
         }
         // MOTORISTA
         for (var i = 0; i < loginMotorista.length; i++) {
-            console.log(">>>>>>>" + loginMotorista[i].cpfCad)
             if (login == loginMotorista[i].emailCad && senha == loginMotorista[i].senhaCad) {
                 loginEncontrado = true;
                 let id = loginMotorista[i].cpfCad;
                 
-                console.log(">>>>>>>" + loginMotorista[i].cpfCad)
-
                 localStorage.setItem('user-authenticated-id', id);
                 location.href = "/codigo/html/HomeMotorista.html"
 
