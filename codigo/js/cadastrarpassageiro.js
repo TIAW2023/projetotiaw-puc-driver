@@ -48,7 +48,7 @@ function salvar(event) {
     const endereco = event.target.querySelector("#input-login-endereco").value;
     const matricula = event.target.querySelector("#input-login-matricula").value;
     const turno = event.target.querySelector("#input-login-turno").value;
-    const motorista = localStorage.getItem('user-authenticated-id');
+    const motorista = JSON.parse(localStorage.getItem('user-authenticated-id')).id || "";
 
     const passageiro = {
         nome,
@@ -76,7 +76,7 @@ function salvar(event) {
 function changeTab(tab) {
     const tela = document.querySelector(`#nav-home`)
     const passageiros = JSON.parse(localStorage.getItem("passageiros")) ?? []
-    const motoristaID = localStorage.getItem("user-authenticated-id");
+    const motoristaID = JSON.parse(localStorage.getItem("user-authenticated-id")).id;
 
     tela.innerHTML = ""
 

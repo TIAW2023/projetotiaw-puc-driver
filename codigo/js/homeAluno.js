@@ -1,4 +1,10 @@
+import { motoristaAtual, motoristaPeloId } from "./userUtil.js";
+
 const cardsListContainer = document.querySelector("#cards-list");
+
+$(document).ready(() => {
+    loadMotorists();
+});
 
 function loadMotorists(){
     const list = JSON.parse(localStorage.getItem('listaUser')) || []
@@ -22,19 +28,7 @@ function loadMotorists(){
                             `<span class="destaque">${bairro}</span>`
                             )).join('')}
                         </div>
-                        <div class="estrelas">
-                            <input type="radio" id="card1_star-empty" name="card1_fb" value="" checked />
-                            <label for="card1_star-1"><i class="fa"></i></label>
-                            <input type="radio" id="card1_star-1" name="card1_fb" value="1" />
-                            <label for="card1_star-2"><i class="fa"></i></label>
-                            <input type="radio" id="card1_star-2" name="card1_fb" value="2" />
-                            <label for="card1_star-3"><i class="fa"></i></label>
-                            <input type="radio" id="card1_star-3" name="card1_fb" value="3" />
-                            <label for="card1_star-4"><i class="fa"></i></label>
-                            <input type="radio" id="card1_star-4" name="card1_fb" value="4" />
-                            <label for="card1_star-5"><i class="fa"></i></label>
-                            <input type="radio" id="card1_star-5" name="card1_fb" value="5" />
-                        </div>
+                        <div class="estrelas">${buildRating(item)}</div>
                     </div>
                 </div>
                 <div class="modal fade" id=${"myModal" + index} tabindex="-1" role="dialog"
@@ -74,25 +68,7 @@ function loadMotorists(){
                                                 <img src=${item.vanCad                                                }
                                                     class="img-moto " alt="Foto da van">
                                             </div>
-                                            <div class="estrelas">
-                                                <input type="radio" id="" name="card1_fb"
-                                                    value="" checked />
-                                                <label for=""><i class="fa"></i></label>
-                                                <input type="radio" id="" name="card1_fb"
-                                                    value="1" />
-                                                <label for=""><i class="fa"></i></label>
-                                                <input type="radio" id="" name="card1_fb"
-                                                    value="2" />
-                                                <label for=""><i class="fa"></i></label>
-                                                <input type="radio" id="" name="card1_fb"
-                                                    value="3" />
-                                                <label for=""><i class="fa"></i></label>
-                                                <input type="radio" id="" name="card1_fb"
-                                                    value="4" />
-                                                <label for=""><i class="fa"></i></label>
-                                                <input type="radio" id="" name="card1_fb"
-                                                    value="5" />
-                                            </div>
+                                            <div class="estrelas">${buildRating(item)}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -235,4 +211,32 @@ function filterMotorists(event){
             $(`#myModal${index}`).modal('show');
         });  
     })
+}
+
+function buildRating(motorista){
+    let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || []
+    let feedback = feedbacks.filter((feedback) => feedback.motoristaId == motorista.cpfCad)
+
+    let total = feedback.reduce((total, item) => {
+        return total + ((item.conditionStars + item.punctualityStars + item.treatmentStars) / 3)
+    }, 0)
+
+    console.log(total/feedback.length)
+
+    let rate = Math.floor((total/feedback.length).toFixed(2));
+
+    let rateString = ""
+    for(let i =0; i< 5; i++){
+        if(i<rate){
+            rateString += `
+            <i class="bi bi-star-fill"></i>
+        `;
+        }else {
+            rateString += `
+            <i class="bi bi-star"></i>
+        `;
+        }
+    }
+    console.log(feedback)
+    return rateString + `${(total/feedback.length).toFixed(2)} (${feedback.length})`;
 }

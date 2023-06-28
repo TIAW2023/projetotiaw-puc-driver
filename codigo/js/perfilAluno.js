@@ -1,9 +1,9 @@
 let pessoas;
-const userAuthenticated = localStorage.getItem('user-authenticated-id');
+const userAuthenticated = JSON.parse(localStorage.getItem('user-authenticated-id')).id;
 let userLogged = null
 
-if (localStorage.hasOwnProperty("usuarios") && userAuthenticated) {
-    pessoas = JSON.parse(localStorage.getItem("usuarios"));
+if (localStorage.hasOwnProperty("alunos") && userAuthenticated) {
+    pessoas = JSON.parse(localStorage.getItem("alunos"));
     //deixei settado um usuarios para preencher os dados para fins de avaliação; mas depois será verificado conforme login da pessoa;
     userLogged = pessoas.find(pessoa => pessoa.cpf === userAuthenticated);
     console.log(pessoas)

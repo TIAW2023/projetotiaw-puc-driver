@@ -2,11 +2,11 @@ function logar() {
     var login = document.getElementById('imput-login-2').value;
     var senha = document.getElementById('imput-login-1').value;
 
-    //if (localStorage.usuarios || localStorage.listaUser) {
-        var logins = JSON.parse(localStorage.getItem('alunos'));
-        var logins2 = JSON.parse(localStorage.getItem('listaUser'));
-        console.log(logins);
-        console.log(logins2);
+    if (localStorage.alunos || localStorage.listaUser) {
+        var loginPassageiro = JSON.parse(localStorage.getItem('alunos'));
+        var loginMotorista = JSON.parse(localStorage.getItem('listaUser'));
+        console.log(loginPassageiro);
+        console.log(loginMotorista);
 
         var loginEncontrado = false;
 
@@ -14,13 +14,13 @@ function logar() {
         for (var i = 0; i < loginPassageiro.length; i++) {
             if (login == loginPassageiro[i].email && senha == loginPassageiro[i].senha) {
                 loginEncontrado = true;
-                let id = logins[i].cpfCad;
-                let idUser = logins.find(user => user.login == login)
+                let id = loginPassageiro[i].cpf;
 
-                console.log(">>>>" + idUser);
-                
+                localStorage.setItem('user-authenticated-id', JSON.stringify({
+                    id: id,
+                    type: "aluno"
+                }));
 
-                localStorage.setItem('user-authenticated-id', id);
                 location.href = "/codigo/html/HomeAluno.html"
 
                 break;
@@ -30,15 +30,12 @@ function logar() {
         for (var i = 0; i < loginMotorista.length; i++) {
             if (login == loginMotorista[i].emailCad && senha == loginMotorista[i].senhaCad) {
                 loginEncontrado = true;
-                let id = logins2[i].cpfCad;
-                let idUser = logins.find(user => user.login == login)
+                let id = loginMotorista[i].cpfCad;
 
-                console.log(">>>>" + idUser);
-
-                console.log(">>>>2" + id);
-                alert('LOGIN EFETUADO COM SUCESSO' + id);
-
-                localStorage.setItem('user-authenticated-id', id);
+                localStorage.setItem('user-authenticated-id', JSON.stringify({
+                    id: id,
+                    type: "motorista"
+                }));
                 location.href = "/codigo/html/HomeMotorista.html"
 
                 break;
@@ -50,9 +47,9 @@ function logar() {
         } else {
             alert('USUARIO OU SENHA INCORRETOS');
         }
-    //} else {
-    //    alert('Erro! ');
-    //}
+    } else {
+        alert('Erro! ');
+    }
 
     console.log(login, senha);
 }
