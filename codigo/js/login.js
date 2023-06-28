@@ -2,11 +2,11 @@ function logar() {
     var login = document.getElementById('imput-login-2').value;
     var senha = document.getElementById('imput-login-1').value;
 
-    if (localStorage.alunos || localStorage.listaUser) {
-        var loginPassageiro = JSON.parse(localStorage.getItem('alunos'));
-        var loginMotorista = JSON.parse(localStorage.getItem('listaUser'));
-        console.log(loginPassageiro);
-        console.log(loginMotorista);
+    //if (localStorage.usuarios || localStorage.listaUser) {
+        var logins = JSON.parse(localStorage.getItem('alunos')) || [];
+        var logins2 = JSON.parse(localStorage.getItem('listaUser')) || [];
+        console.log(logins);
+        console.log(logins2);
 
         var loginEncontrado = false;
 
@@ -14,7 +14,11 @@ function logar() {
         for (var i = 0; i < loginPassageiro.length; i++) {
             if (login == loginPassageiro[i].email && senha == loginPassageiro[i].senha) {
                 loginEncontrado = true;
-                let id = loginPassageiro[i].cpf;
+                let id = logins[i].cpfCad;
+                let idUser = logins.find(user => user.login == login)
+
+                console.log(">>>>" + idUser);
+                
 
                 localStorage.setItem('user-authenticated-id', id);
                 location.href = "/codigo/html/HomeAluno.html"
@@ -26,8 +30,14 @@ function logar() {
         for (var i = 0; i < loginMotorista.length; i++) {
             if (login == loginMotorista[i].emailCad && senha == loginMotorista[i].senhaCad) {
                 loginEncontrado = true;
-                let id = loginMotorista[i].cpfCad;
-                
+                let id = logins2[i].cpfCad;
+                let idUser = logins.find(user => user.login == login)
+
+                console.log(">>>>" + idUser);
+
+                console.log(">>>>2" + id);
+                alert('LOGIN EFETUADO COM SUCESSO' + id);
+
                 localStorage.setItem('user-authenticated-id', id);
                 location.href = "/codigo/html/HomeMotorista.html"
 
@@ -40,9 +50,9 @@ function logar() {
         } else {
             alert('USUARIO OU SENHA INCORRETOS');
         }
-    } else {
-        alert('Erro! ');
-    }
+    //} else {
+    //    alert('Erro! ');
+    //}
 
     console.log(login, senha);
 }
