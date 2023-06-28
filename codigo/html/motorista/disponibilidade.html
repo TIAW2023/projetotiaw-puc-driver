@@ -62,20 +62,20 @@
 
     function carregarDadosMotorista(motorista){
         //turno
-        let turnoJson = JSON.parse(motorista.turnoCad)
+        //let turnoJson = JSON.parse(motorista.turnoCad)
 
-        if(turnoJson.manha){
+        if(motorista.turnoCad == "manha"){
             $('#manha').attr('checked', 'checked')
         }
-        if(turnoJson.tarde){
+        if(motorista.turnoCad == "tarde"){
             $('#tarde').attr('checked', 'checked')
         }
-        if(turnoJson.noite){
+        if(motorista.turnoCad == "noite"){
             $('#noite').attr('checked', 'checked')
         }
 
         //bairros atendidos
-        motorista.bairrosCad.forEach(element => {
+        motorista.bairroCad.split(',').forEach(element => {
             $('#bairros-atendidos').append(
                 `<span class="badge text-bg-primary m-1">${element}</span>`
             )
@@ -96,7 +96,7 @@
             let motoristaAtualizado = motoristas.filter(obj => obj.cpfCad != motorista.cpfCad )
 
             motorista.turnoCad = turnoJson
-            motorista.bairrosCad = bairrosAtendidos
+            motorista.bairroCad = bairrosAtendidos.join()
 
             motoristaAtualizado.push(motorista)
             localStorage.removeItem('listaUser')
@@ -108,13 +108,13 @@
     }
 
     function turnoToJson(isManhaChecked, isTardeChecked, isNoiteChecked){
-        return JSON.stringify(
-            {
-                'manha': isManhaChecked,
-                'tarde': isTardeChecked,
-                'noite': isNoiteChecked
-            }
-        )
+        if(isManhaChecked){
+            return "manha"
+        } else if(isTardeChecked){
+            return "tarde"
+        } else if(isNoiteChecked){
+            return "noite"
+        }
     }
 
     function loadDadosBasicos(){

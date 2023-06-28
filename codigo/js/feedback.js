@@ -33,7 +33,8 @@ function saveToLocalStorage(conditionStars, punctualityStars, treatmentStars, co
         conditionStars: conditionStars,
         punctualityStars: punctualityStars,
         treatmentStars: treatmentStars,
-        comment: comment
+        comment: comment,
+        motoristaId: localStorage.getItem("user-authenticated-id") || 0
     }
 
     let storedFeedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
