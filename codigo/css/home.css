@@ -92,12 +92,14 @@
 #imput-login-1{
     border-radius: 7px;
     border: none;
+    padding: 5px;
     background-color:white;
     color:#000000;
 }
 #imput-login-2{
     border-radius: 7px;
     border: none;
+    padding: 5px;
     background-color:white;
     color:#000000;
 }
@@ -122,7 +124,7 @@
 }
 
 #logo-tecnologias{
-    width: 40px;
+    width: 35px;
     align-items: center;
 }
 
@@ -132,19 +134,6 @@
 
 #esqueci-senha{
     font-size: 0.7rem;
-}
-
-/* RESPONSIVIDADE */
-@media screen and (min-width: 1028px) and (max-width: 1437px){
-    #login{
-        background-color:#DCDCDC;
-    }
-}
-
-@media screen and (min-width: 536px) and (max-width: 1028px){
-    #login{
-        background-color:#DCDCDC;
-    }
 }
 
 @media screen and (min-width: 536px) and (max-width: 759px){
