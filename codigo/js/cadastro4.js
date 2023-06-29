@@ -80,7 +80,11 @@ function cadastrar4() {
     localStorage.setItem('listaUser', JSON.stringify(listaUser))
     setTimeout(() => {
       alert('Cadastro realizado com Sucesso!')
-      /* window.location.href = 'CadastroMotorista4.html' */
+      localStorage.setItem('user-authenticated-id', JSON.stringify({
+        id: listaUser[index3].cpfCad,
+        type: "motorista"
+      }));
+      location.href = "/codigo/html/HomeMotorista.html"
     }, 1000)
   } else {
     alert('Nao foi possivel ralizar o cadastro')

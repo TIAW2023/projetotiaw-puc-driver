@@ -17,6 +17,8 @@ formulario.addEventListener('submit', e => {
     var bairro = document.getElementById('bairroAluno').value;
     var numero = document.getElementById('numeroAluno').value;
     var turno = document.querySelectorAll('input[type="checkbox"]');
+    var photo = document.getElementById('urlFotoAluno').value;
+
     var turnos = []
     console.log(turno);
     for (let i = 0; i < 3; i++) {
@@ -51,7 +53,8 @@ formulario.addEventListener('submit', e => {
         endereço: endereço,
         bairro: bairro,
         numero: numero,
-        turno: turnos
+        turno: turnos,
+        photo: photo
     });
     if (nome.length < 3) {
         alert("nome Invalido");
@@ -80,6 +83,13 @@ formulario.addEventListener('submit', e => {
         console.log(alunos)
         for (i = 0; i < alunos.length; i++) {
             console.log(alunos[i]);
+            localStorage.setItem('user-authenticated-id', JSON.stringify({
+                id: cpf,
+                type: "aluno"
+            }));
+
+            
+            location.href = "/codigo/html/HomeAluno.html"
         }
     }
 

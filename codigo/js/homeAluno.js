@@ -1,13 +1,17 @@
-import { motoristaAtual, motoristaPeloId } from "./userUtil.js";
+import { userType, ALUNO } from "./userUtil.js";
 
 const cardsListContainer = document.querySelector("#cards-list");
 
 $(document).ready(() => {
-    loadMotorists();
-    $("#busca-form").submit((event) => {
-        filterMotorists(event)
-        console.log($("#search-input").val());
-    })
+    if(userType() == ALUNO){
+        $("#no-access-container").css('display','none')
+        loadMotorists();
+        $("#busca-form").submit((event) => {
+            filterMotorists(event)
+            console.log($("#search-input").val());
+        })
+    } else {
+    }
 });
 
 function loadMotorists(){
@@ -69,10 +73,14 @@ function loadMotorists(){
                                                 <strong class="mb-4">
                                                     Motorista ${item.nomeCad} atende no turno da ${item.turnoCad}
                                                 </strong>
-                                                <img src=${item.vanCad                                                }
+                                                <img src=${item.vanCad}
                                                     class="img-moto " alt="Foto da van">
                                             </div>
                                             <div class="estrelas">${buildRating(item)}</div>
+
+                                            <div class="comentarios">
+                                                ${buildComentarios(item)}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,8 +121,6 @@ function filterMotorists(event){
             (noiteCheckbox && item.turnoCad == "noite")
         }
     })
-
-    console.log(filterList)
 
     filterList.forEach((item, index) => {
         const bairros = item.bairroCad.split(',');
@@ -238,4 +244,12 @@ function buildRating(motorista){
         return rateString + `${(total/feedback.length).toFixed(2)} (${feedback.length})`;
     }
     
+}
+
+function buildComentarios(motorista){
+    let feedbacks = (JSON.parse(localStorage.getItem("feedbacks")) || []).filter((feedback) => feedback.motoristaId == motorista.cpfCad)
+
+    return feedbacks.map(feedback => (
+        `<p>${feedback.comment}</p><hr/>`
+    )).join('');
 }

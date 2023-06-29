@@ -105,3 +105,9 @@ function redefinirsenha() {
         alert('erro!');
     }
 }
+
+function limparForm(){
+    document.getElementById('imput-redefinir-email').value = "";
+    document.getElementById('imput-redefinir-cpf').value = "";
+    document.getElementById('imput-redefinir-senha').value = "";
+}

@@ -20,3 +20,10 @@ export function motoristaPeloId(motoristaId){
 export function usuarioAutenticado(){
     return localStorage.hasOwnProperty("user-authenticated-id")
 }
+
+export function userType(){
+    return JSON.parse(localStorage.getItem("user-authenticated-id")).type || ""
+}
+
+export const MOTORISTA = "motorista"
+export const ALUNO = "aluno"

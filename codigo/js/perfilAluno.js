@@ -21,6 +21,7 @@ if(userLogged){
   document.getElementById('emailAluno').value = userLogged.email;
   document.getElementById('numeroAluno').value = userLogged.numero;
   document.getElementById('turnoAluno').value = userLogged.turno; 
+  document.getElementById('imgAluno').src = userLogged.photo;
 }
 
 
