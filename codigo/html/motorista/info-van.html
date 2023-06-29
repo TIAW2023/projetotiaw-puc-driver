@@ -61,7 +61,7 @@
     }
 
     function loadDadosBasicos(){
-        let idMotorista = localStorage.getItem("id") || "01234567890";
+        let idMotorista = JSON.parse(localStorage.getItem("user-authenticated-id")).id;
 
         let motoristas = JSON.parse(localStorage.getItem("listaUser") || []);
         let motorista = motoristas.filter(item => {

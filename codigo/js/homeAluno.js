@@ -4,6 +4,10 @@ const cardsListContainer = document.querySelector("#cards-list");
 
 $(document).ready(() => {
     loadMotorists();
+    $("#busca-form").submit((event) => {
+        filterMotorists(event)
+        console.log($("#search-input").val());
+    })
 });
 
 function loadMotorists(){
@@ -93,20 +97,24 @@ function filterMotorists(event){
     cardsListContainer.innerHTML = ""
 
     const searchString = event.target.querySelector("#search-input").value
-    const manhaCheckbox = event.target.querySelector("#manha-checkbox").value
-    const tardeCheckbox = event.target.querySelector("#tarde-checkbox").value
-    const noiteCheckbox= event.target.querySelector("#noite-checkbox").value
+    const manhaCheckbox = event.target.querySelector("#manha-checkbox").checked
+    const tardeCheckbox = event.target.querySelector("#tarde-checkbox").checked
+    const noiteCheckbox= event.target.querySelector("#noite-checkbox").checked
 
 
     const list = JSON.parse(localStorage.getItem('listaUser')) || []
 
     const filterList = list.filter(item => {
-        return         item.bairroCad.toLowerCase().includes(searchString.toLowerCase()) ||
-        (manhaCheckbox && item.turnoCad == "manha") ||
-        (tardeCheckbox && item.turnoCad == "tarde") ||
-        (noiteCheckbox && item.turnoCad == "noite")
+        if(searchString){
+            return item.bairroCad.toLowerCase().includes(searchString.toLowerCase())
+        } else {
+            return (manhaCheckbox && item.turnoCad == "manha") ||
+            (tardeCheckbox && item.turnoCad == "tarde") ||
+            (noiteCheckbox && item.turnoCad == "noite")
+        }
     })
 
+    console.log(filterList)
 
     filterList.forEach((item, index) => {
         const bairros = item.bairroCad.split(',');
@@ -125,19 +133,7 @@ function filterMotorists(event){
                         `<span class="destaque">${bairro}</span>`
                         )).join('')}
                     </div>
-                    <div class="estrelas">
-                        <input type="radio" id="card1_star-empty" name="card1_fb" value="" checked />
-                        <label for="card1_star-1"><i class="fa"></i></label>
-                        <input type="radio" id="card1_star-1" name="card1_fb" value="1" />
-                        <label for="card1_star-2"><i class="fa"></i></label>
-                        <input type="radio" id="card1_star-2" name="card1_fb" value="2" />
-                        <label for="card1_star-3"><i class="fa"></i></label>
-                        <input type="radio" id="card1_star-3" name="card1_fb" value="3" />
-                        <label for="card1_star-4"><i class="fa"></i></label>
-                        <input type="radio" id="card1_star-4" name="card1_fb" value="4" />
-                        <label for="card1_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="card1_star-5" name="card1_fb" value="5" />
-                    </div>
+                    <div class="estrelas">${buildRating(item)}</div>
                 </div>
             </div>
             <div class="modal fade" id=${"myModal" + index} tabindex="-1" role="dialog"
@@ -221,8 +217,6 @@ function buildRating(motorista){
         return total + ((item.conditionStars + item.punctualityStars + item.treatmentStars) / 3)
     }, 0)
 
-    console.log(total/feedback.length)
-
     let rate = Math.floor((total/feedback.length).toFixed(2));
 
     let rateString = ""
@@ -237,6 +231,11 @@ function buildRating(motorista){
         `;
         }
     }
-    console.log(feedback)
-    return rateString + `${(total/feedback.length).toFixed(2)} (${feedback.length})`;
+    
+    if(feedback.length == 0){
+        return rateString + `0.0 (${feedback.length})`;
+    } else {
+        return rateString + `${(total/feedback.length).toFixed(2)} (${feedback.length})`;
+    }
+    
 }
